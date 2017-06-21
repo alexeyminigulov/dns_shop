@@ -1,0 +1,12 @@
+<div class="header-profile">
+	<h3>Профиль</h3>
+</div>
+<ul class="collection">
+	<li class="collection-item"><img class="photo-profile" ng-src="{{ (vm.user.photo) ? '/images/'+vm.user.photo : '/img/user_profile.jpg' }}"></li>
+	<li class="collection-item">Login: {{ vm.user.login }}</li>
+	<li class="collection-item">Email: {{ vm.user.email }}</li>
+	<li class="collection-item">Имя: {{ vm.user.first_name }}</li>
+	<li class="collection-item">Фамилия: {{ vm.user.last_name }}</li>
+	<li class="collection-item">Дата рождения: {{ vm.user.birth_date }}</li>
+	<li class="collection-item">Пол: {{ (vm.user.sex == 'male') ? 'мужской' : 'женский' }}</li>
+</ul>

@@ -1,0 +1,33 @@
+<div id="modal-new-category" class="modal bottom-sheet">
+	<div class="modal-content">
+		<div class="row">
+			<div class="col s4 offset-s2">
+				<h4>Создать новую категорию</h4>
+				<ul class="collection supplies">
+					<li class="waves-effect  collection-item avatar"
+					ng-repeat="product in vm.request.request_products">
+						<div class="group-info">
+							<img ng-src="/images/{{ product.logotype }}" alt="" class="circle">
+							<span class="title">{{ product.product }}</span>
+							<p>Кол-во: {{ product.amount }}</p>
+						</div>
+						<div class="side-right">
+							<span class="amount">{{ product.amount }} штук</span>
+						</div>
+					</li>
+				</ul>
+				<div class="group-request-buttons">
+					<a ng-click="vm.submit($event, 1)" class="waves-effect waves-light btn">Принять</a>
+					<a ng-click="vm.submit($event, -1)" class="waves-effect waves-light btn">Отклонить</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="modal-footer">
+		<a ng-click="vm.closeModalCategory($event)"
+		class="modal-action modal-close waves-effect waves-green btn-flat">Back</a>
+	</div>
+</div>
+
+<div class="modal-overlay"></div>

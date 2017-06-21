@@ -1,0 +1,26 @@
+ul.collection.news {
+	border: none;
+}
+ul.collection.news > li:first-child {
+	border-top: 1px solid #e0e0e0;
+}
+ul.collection.news > li {
+	border-right: 1px solid #e0e0e0;
+	border-left: 1px solid #e0e0e0;
+}
+.collection.news > .collection-item.avatar {
+	padding-left: 72px;
+}
+.collection.news > .collection-item.avatar .circle {
+	border-radius: 0;
+}
+.news.pagination {
+	width: 100%;
+	border: none !important;
+}
+.news.pagination a {
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 200px;
+}

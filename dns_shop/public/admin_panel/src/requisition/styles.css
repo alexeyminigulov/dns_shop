@@ -1,0 +1,12 @@
+.collection .collection-item.requisition {
+	padding-left: 20px;
+}
+.collection .collection-item.requisition .side-right {
+	position: absolute;
+	top: 35px;
+	right: 25px;
+}
+.collection .collection-item.requisition .side-right .status i {
+	color: #e53935;
+	font-size: 16px;
+}

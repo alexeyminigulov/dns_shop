@@ -1,0 +1,324 @@
+header {
+  position: relative;
+}
+
+
+
+main {
+  position: relative;
+  top: 65px;
+}
+main .container {
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  max-width: 70%;
+  margin: 0 auto;
+  left: 300px;
+  right: 0;
+  top: 0px;
+  padding: 0 40px;
+}
+main > .container {
+  overflow: hidden;   /* For mobile css createTypeProducts*/
+}
+.header {
+  
+}
+.header > h1 {
+  font-size: 35px;
+  vertical-align: middle;
+}
+@media only screen and (max-width : 480px) {
+
+  .header {
+    text-align: justify;
+    height: 48px;
+  }
+  .header:after {
+    display: inline-block;
+    content: '';
+    height: 0;
+    width: 100%;
+  }
+  .header > h1 {
+    display: inline-block;
+    margin: 0;
+    font-size: 20px;
+    vertical-align: 13px;
+  }
+  .header > .fixed-action-btn.create-new-category {
+    position: static;
+    display: inline-block;
+    top: 40px;
+    bottom: 0;
+    vertical-align: 18px;
+    padding: 0;
+  }
+  .header > .fixed-action-btn.create-new-category a {
+    width: 50px;
+    height: 50px;
+  }
+  .header > .fixed-action-btn.create-new-category a i {
+    line-height: 50px;
+  }
+
+}
+@media only screen and (max-width : 992px) {
+  main .container {
+    left: 0;
+    max-width: 90%;
+    padding: 0 0px;
+  }
+}
+
+
+
+
+
+
+.spinner {
+  margin: 100px auto;
+  width: 80px;
+  height: 80px;
+  position: relative;
+  text-align: center;
+  
+  -webkit-animation: sdk-rotate 2.0s infinite linear;
+  animation: sdk-rotate 2.0s infinite linear;
+}
+.dot1, .dot2 {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background-color: #ee6e73;
+  border-radius: 100%;
+  
+  -webkit-animation: sdk-bounce 2.0s infinite ease-in-out;
+  animation: sdk-bounce 2.0s infinite ease-in-out;
+}
+.dot2 {
+  top: auto;
+  bottom: 0;
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+@-webkit-keyframes sdk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes sdk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+@-webkit-keyframes sdk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+@keyframes sdk-bounce {
+  0%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+
+.collection li {
+  display: block;
+}
+main .container .collection > li:first-child > * {
+  white-space: nowrap;
+}
+
+
+
+.modal-overlay/* паранжа */
+{
+  display: block;
+  background-color: #000; /* Чёрный фон */
+  height: 100%; /* Высота максимальна */
+  left: 0; /* Нулевой отступ слева */
+  opacity: 0.50; /* Степень прозрачности */
+  position: fixed; /* Фиксированное положение */
+  top: 0; /* Нулевой отступ сверху */
+  width: 100%; /* Ширина максимальна */
+  z-index: 890; /* Заведомо быть НАД другими элементами */
+}
+
+
+.create-new-category {  /* Button "+"*/
+  z-index: 850 !important;
+}
+
+
+
+
+
+.input-field.select2 {
+  margin-top: 15px;
+  width: 100%;
+}
+.input-field.select2 label {
+  font-size: 15px;
+  top:-20px;
+}
+.input-field.select2 span.select2 {
+  width: 100%;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected]{
+  background: #16a085 !important;
+}
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+.block {
+  float: none !important;
+  margin-left: 0 !important;
+}
+
+
+.fields {
+  margin-left: 42px;
+}
+.fields > p {
+  margin-bottom: 0;
+  margin-left: 5px !important;
+  font-size: 18px;
+}
+.fields > div {
+  padding: 0 !important;
+}
+.fields input {
+  margin-bottom: 3px !important;
+  text-indent: 10px !important;
+}
+@media only screen and (max-width : 480px) {
+  .fields {
+    margin-left: 20px;
+  }
+}
+
+
+
+/*   Выбрать тип поля при создавании новой таблицы товара   */
+.select-type {
+
+}
+
+
+
+.new-field {
+  background-color: #fff;
+  border-radius: 10px;
+  margin-top: 50px;
+  padding: 25px;
+  padding-top: 35px;
+  position: relative;
+}
+.new-field::before {
+  content: '';
+  display: block;
+  position: absolute;
+
+  top: 20px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+
+  border-radius: inherit;
+  border: 3px solid #b2dfdb;
+}
+.new-field p {
+  position: absolute;
+  top: -6px;
+  left: 15px;
+  background-color: #fff;
+
+  margin-left: 20px;
+  margin-bottom: 12px;
+  padding: 0 8px;
+  font-size: 15px;
+
+}
+.new-field .btn {
+  margin-top: 20px;
+  margin-left: 11px;
+}
+
+
+
+li.created-field {    /*   Созданные поля для товара   */
+  
+}
+.side-nav .collapsible.collapsible-accordion li .collapsible-header {
+  position: relative;
+  padding-left: 31px;
+}
+li .collapsible-header .btn {
+  position: absolute;
+  line-height: 30px;
+  height: 30px;
+  padding: 0 15px;
+
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+li .collapsible-body {
+  background-color: #fafafa;
+}
+li .collapsible-body a {
+  padding-left: 50px !important;
+}
+li.created-field .collapsible-body {
+  padding: 40px 20px;
+}
+
+
+
+
+.table .fixed-action-btn {
+  position: relative;
+  right: auto;
+  bottom: auto;
+}
+.table .fixed-action-btn ul {
+  right: 170px;
+  top: 65%;
+  line-height: 100%;
+}
+.table .fixed-action-btn ul li {
+  margin: 0 5px;
+  bottom: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+
+.paranga {
+  display: none;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  z-index: 5;
+
+  background-color: #000;
+  opacity: .5;
+}
+
+
+
+
+.toast-message {
+  word-break: normal;
+}

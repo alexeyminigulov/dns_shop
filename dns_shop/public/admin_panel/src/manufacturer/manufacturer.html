@@ -1,0 +1,44 @@
+<div class="header">
+	<h1>Бренды</h1>
+	<div class="fixed-action-btn create-new-category">
+		<a ui-sref="manufacturer.create"
+		class="btn-floating btn-large waves-effect waves-light red">
+			<i class="material-icons">add</i>
+		</a>
+	</div>
+</div>
+
+<ul class="collection  type-products manufacturer">
+	<li class="waves-effect  collection-item avatar type-product"
+	ng-repeat="manufacturer in vm.manufacturers track by manufacturer.id"
+	ng-click="vm.selectManufacturer(manufacturer)">
+		<div class="group-info-type-products">
+			<img ng-src="/images/{{ manufacturer.logotype }}" alt="" class="circle">
+			<span class="title">{{ manufacturer.name }}</span>
+			<p>Id: {{ manufacturer.id }}</p>
+		</div>
+		<div class="group-buttons">
+			<a class="waves-effect waves-light btn" ui-sref="manufacturer.edit({ id: manufacturer.id })">
+				<i class="material-icons left">mode_edit</i><span>Редактировать</span>
+			</a>
+			<a class="waves-effect waves-light btn" ui-sref="manufacturer.delete({ id: manufacturer.id })">
+				<i class="material-icons left">delete</i><span>Удалить</span>
+			</a>
+		</div>
+	</li>
+</ul>
+
+<ui-view></ui-view>
+
+<div class="footer">
+	<div class="group-buttons">
+		<a class="waves-effect waves-light btn disabled"
+		ng-click="vm.selectManufacturer(manufacturer, 'edit')">
+			<i class="material-icons left">mode_edit</i><span>Редактировать</span>
+		</a>
+		<a class="waves-effect waves-light btn disabled"
+		ng-click="vm.selectManufacturer(manufacturer, 'delete')">
+			<i class="material-icons left">delete</i><span>Удалить</span>
+		</a>
+	</div>
+</div>

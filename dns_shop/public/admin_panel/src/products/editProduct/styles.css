@@ -1,0 +1,6 @@
+.collection .collection-item.avatar .circle {
+	max-width: 42px;
+	max-height: 42px;
+	width: auto;
+	height: auto;
+}

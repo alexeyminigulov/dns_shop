@@ -1,0 +1,23 @@
+<div class="side-nav-right">
+	<div class="container">
+		
+		<div class="row">
+			<div class="header type-product">
+				<h1>Новости</h1>
+				<div class="fixed-action-btn">
+					<a ui-sref="#"
+					ng-click="vm.closeSideNavRight($event)"
+					class="btn-floating btn-large waves-effect waves-light red">
+						<i class="material-icons">add</i>
+					</a>
+				</div>
+			</div>
+			<div>{{ vm.news.title }}</div>
+			<div class="picture">
+				<img ng-src="/images/{{ vm.news.picture['medium'] }}">
+			</div>
+			<div ng-bind-html="vm.news.content"></div>
+		</div>
+
+	</div>
+</div>

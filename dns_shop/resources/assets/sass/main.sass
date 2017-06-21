@@ -1,0 +1,1230 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+html, body
+	height: 100%
+
+%btn-base
+	box-shadow: inset 0px 1px 0px 0px #ffffff
+	border-radius: 6px
+	border: 1px solid #dcdcdc
+	display: inline-block
+	cursor: pointer
+	font-size: 15px
+	font-weight: bold
+	padding: 8px 35px
+	text-decoration: none
+	text-shadow: 0px 1px 0px #ffffff
+	outline: none
+
+%li-item-sidenav
+	position: relative
+	padding: 12px 0
+	margin: 0
+	text-decoration: none
+	transition: 0.3s
+	border-right: 1px solid lighten($color-font, 60%)
+	border-bottom: 1px solid lighten($color-font, 60%)
+	box-sizing: border-box
+	background-color: #fff
+	a
+		display: block
+		padding: 8px 10px
+		padding-left: 25px
+		font-size: 13px
+		color: $color-font
+		font-weight: 200
+		background-color: #fff
+		i.fa
+			display: block
+			position: absolute
+			right: 10px
+			top: 0
+			bottom: 0
+			height: 50%
+			margin: auto
+			color: lighten($color-font, 50%)
+
+%search-product-form
+	.twitter-typeahead
+		width: 100%
+		.tt-menu
+			background-color: #fff
+			right: 50px
+			border-radius: 5px
+			box-shadow: 0 3px 10px 0 #ccc
+			.tt-dataset
+				.tt-suggestion
+					border-bottom: 1px solid lighten($color-font, 65%)
+					padding: 7px 10px
+	position: relative
+	.search-input
+		width: 100%
+		color: $color-font
+		border-radius: 5px
+		border: 1px solid transparent
+		padding: 8px 10px
+		&::-webkit-input-placeholder
+			color: #ccc
+		&:-moz-placeholder
+			color: #ccc
+		&::-moz-placeholder
+			color: #ccc
+		&:-ms-input-placeholder
+			color: #ccc
+	.btn.search-product
+		position: absolute
+		right: 0
+		top: 0
+		bottom: 0
+		outline: none
+		background-color: #fff
+		border: 1px solid #fff
+		border-radius: 5px
+		.fa
+			font-size: 20px
+			color: lighten($color-font, 50%)
+			padding: 5px 10px 5px 15px
+			box-sizing: border-box
+			border-left: 1px solid lighten($color-font, 65%)
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.75
+	font-family: $default-font
+	overflow-x: hidden
+	opacity: 1
+	background-color: $background-color
+	height: auto
+	min-height: 100%
+	input
+    	outline: 0
+    	outline-offset: 0
+
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.not-scrolling
+	overflow: hidden
+
+header
+	margin-bottom: $header-margin-bottom
+	& > .desktop.fixed-header
+		position: fixed
+		top: 0
+		right: 0
+		left: 0
+		z-index: 101
+	.top-header
+		&.fixed-top
+			position: fixed
+			top: 0
+			right: 0
+			width: 100%
+			z-index: 2
+			background-color: $background-color
+		font-size: 13px
+		.desktop
+			.phone, .login, .register, .user, .logout
+				color: $color-font
+				margin: 9px auto
+			.phone
+				text-align: right
+				.fa
+					font-size: 14px
+				.phone-number
+					margin-left: 5px
+					color: lighten($color-font, 10%)
+				.phone-worktime
+					font-weight: 100
+					margin-left: 20px
+					color: #777
+			.login, .register, .user, .logout
+				text-align: right
+				a
+					color: lighten($color-font, 10%)
+		.tablet.mobile
+			.fa
+				color: lighten(#3B3B3B, 25%)
+			.hamburger
+				height: $top-header-mobile
+				line-height: $top-header-mobile
+				width: 35px
+				.fa
+					font-size: 28px
+					vertical-align: middle
+			.icon-logo.tablet
+				width: 100%
+				text-align: center
+				.logo
+					display: inline-block
+					vertical-align: middle
+					background: url("../img/logo-min.png") no-repeat center left
+					width: 215px
+					height: $top-header-mobile
+			.icon-logo.mobile
+				width: 100%
+				text-align: center
+				.logo
+					display: inline-block
+					vertical-align: middle
+					background: url("../img/logo-mobile.png") no-repeat center left
+					width: 80px
+					height: $top-header-mobile
+			.btn-search, .cart
+				text-align: center
+				a
+					display: inline-block
+					background-color: $background-color
+					color: $color-font
+					font-size: 22px
+					height: $top-header-mobile
+					line-height: $top-header-mobile
+					width: 100%
+		.search
+			height: $top-header-mobile
+			line-height: $top-header-mobile
+			//.search-product-form
+			//	.search-input
+			//		width: 100%
+			//		color: $color-font
+			//		border-radius: 3px
+			//		border: 1px solid transparent
+			//		padding: 8px 10px
+			//		line-height: 1.75
+			//		&:focus
+			//			border: 1px solid #66afe9
+			//			box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6)
+			//		&::-webkit-input-placeholder
+			//			color: #ccc
+			//		&:-moz-placeholder
+			//			color: #ccc
+			//		&::-moz-placeholder
+			//			color: #ccc
+			//		&:-ms-input-placeholder
+			//			color: #ccc
+			.search-product-form
+				@extend %search-product-form
+				line-height: 36px
+				top: 11px
+				.search-input
+					padding: 0 10px
+				.twitter-typeahead
+					.tt-menu
+						right: 0
+						.tt-dataset
+							.tt-suggestion
+								padding: 0 10px
+			.search-product.btn.cancel
+				display: inline-block
+				color: $color-font
+				&:hover
+					text-decoration: none
+					cursor: pointer
+		.menu-sudenav
+			height: 100%
+			width: 0
+			position: fixed
+			z-index: 2
+			top: 0
+			left: 0
+			background-color: $background-color
+			overflow-x: hidden
+			transition: 0.5s
+			text-align: center
+			.menu
+				list-style: none
+				padding: 0
+				margin: 0
+				& > li
+					@extend %li-item-sidenav
+					white-space: nowrap
+				& > .closebtn
+					padding: 11px 0
+					a:hover
+						text-decoration: none
+					.fa
+						position: static
+						font-size: 24px
+						color: $color-font
+	.header-search
+		background-color: $accent
+		.container
+			.icon-logo, .search-form, .buttons
+				margin-top: $margin-header-search
+				margin-bottom: $margin-header-search
+			.icon-logo
+				.logo
+					display: block
+					background: url("../img/logo.png") no-repeat center left
+					width: 180px
+					height: 46px
+			.search-form
+				@extend %search-product-form
+			.buttons
+				text-align: right
+				white-space: nowrap
+				.cart
+					@extend %btn-base
+					background-color: #ededed
+					color: $color-font
+					&:hover
+						background-color: #dfdfdf
+					&:active
+						position: relative
+						top: 1px
+	.header-catalog
+		height: $top-header-mobile
+		line-height: $top-header-mobile
+		background-color: $accent
+		a
+			position: relative
+			display: inline-block
+			vertical-align: middle
+			color: lighten($color-font, 10%)
+			font-weight: 600
+			width: 100%
+			text-decoration: none
+			&:hover
+				text-decoration: none
+			.fa
+				position: absolute
+				display: block
+				top: 0
+				bottom: 0
+				margin: auto
+				right: 0
+				height: 22px
+				font-size: 22px
+
+	.catalog-sudenav
+		height: 100%
+		width: 100%
+		position: fixed
+		z-index: 2
+		top: $top-header-mobile
+		left: 100%
+		background-color: $background-color
+		overflow-x: hidden
+		transition: 0.5s
+		text-align: center
+		.catalog
+			&.mobile
+				li
+					text-align: left
+					&.closebtn
+						text-align: center
+					.image
+						text-align: left
+						display: inline-block
+						margin-right: 10px
+						img
+							max-height: 27px
+							max-width: 36px
+			list-style: none
+			padding: 0
+			margin: 0
+			& > li
+				@extend %li-item-sidenav
+			& > .closebtn
+				padding: 11px 0
+				a:hover
+					text-decoration: none
+				.fa
+					position: static
+					font-size: 24px
+					color: $color-font
+
+.container
+	aside
+		top: -$header-margin-bottom
+		ul.catalog.invisible
+			position: absolute
+		ul.catalog
+			position: relative
+			z-index: 3
+			padding: 0
+			margin: 0
+			list-style: none
+			box-sizing: border-box
+			white-space: nowrap
+			& > li:first-child
+					border-top: 1px solid lighten($color-font, 60%)
+			& > li
+				display: block
+				position: relative
+				padding: 0
+				margin: 0
+				border-right: 1px solid lighten($color-font, 60%)
+				border-left: 2px solid $accent
+				border-bottom: 1px solid lighten($color-font, 60%)
+				box-sizing: border-box
+				a
+					display: block
+					padding: 8px 10px
+					padding-left: 25px
+					font-size: 13px
+					color: $color-font
+					font-weight: 200
+					background-color: #fff
+				i.fa
+					display: block
+					position: absolute
+					right: 10px
+					top: 0
+					bottom: 0
+					height: 50%
+					margin: auto
+					color: lighten($color-font, 50%)
+				.sub-wrap
+					display: none
+					position: absolute
+					top: 0
+					// right: -790px
+					z-index: 1
+					background-color: #fff
+					& > .catalog-subcatalog
+						padding: 0
+						margin-top: 5px
+						// width: 1200px
+						& > li
+							position: static
+						& > li > .item-wrap > a
+							font-weight: 600
+					.catalog-subcatalog
+						list-style: none
+						padding-left: 15px
+						a
+							padding: 2px 0px
+				&:hover .sub-wrap
+					display: block
+		.catalog-filters
+			margin-top: $header-margin-bottom
+			.filter-controls
+				label.ui-checkboxradio-label.ui-corner-all.ui-button
+					margin: 0
+					background-color: inherit
+					border: none
+					color: $color-font
+					outline: none
+					box-shadow: none
+					&:active
+						background-color: inherit
+					.ui-checkboxradio-icon.ui-corner-all.ui-icon.ui-icon-background
+						border: 1px solid lighten($color-font, 50%)
+				.filter
+					border: 1px solid lighten($color-font, 60%)
+					border-radius: 3px
+					label
+						position: relative
+						outline: none
+						padding-left: 40px
+						padding-right: 40px
+						margin-top: 0
+						.arrow
+							display: inline-block
+							position: absolute
+							height: 20px
+							margin: auto
+							top: 0
+							bottom: 0
+							right: 10px
+							transition: transform .8s
+							&.down-arrow
+								transform: rotate(180deg)
+							&.up-arrow
+								transform: rotate(0deg)
+						&.ui-accordion-header.ui-corner-top.ui-state-default.ui-accordion-header-active.ui-state-active
+							background-color: #fff
+							border: 0px
+							color: $color-font
+					&:hover > label.ui-accordion-header.ui-corner-top.ui-state-default.ui-accordion-header-active.ui-state-active,
+					&:hover > .fields,
+					&:hover > .block
+						background-color: #ededed
+					.input-range
+						border: 1px solid transparent
+						.input-number
+							margin: 0 auto
+							width: 180px
+							.max, .min
+								display: inline-block
+								padding: 6px
+								font-size: 15px
+								width: 45%
+								height: 30px
+								border-radius: 5px
+								border: 1px solid lighten($color-font, 50%)
+						.input-slider
+							width: 160px
+							margin: 20px auto
+							.ui-slider
+								height: 7px
+								& > *
+									z-index: 0
+								.ui-slider-handle
+									border-radius: 50%
+									outline: none
+									top: -7px
+									&:hover
+										background-color: #0094d9
+								.ui-slider-range
+									background-color: #0094d9
+					.block
+						padding: 0
+						.checkbox-list
+							list-style: none
+							margin: 0 auto
+							margin-bottom: 20px
+							padding: 10px 10px
+							border-radius: 5px
+							border: 1px solid lighten($color-font, 60%)
+							overflow-y: scroll
+							max-height: 200px
+							width: 180px
+							li
+								margin-bottom: 10px
+								&:last-child
+									margin-bottom: 0px
+								label
+									padding: 0
+			.buttons.static
+				padding-top: 10px
+				padding-bottom: 10px
+				background-color: #fff
+				border: 1px solid lighten($color-font, 60%)
+				border-top: none
+				button
+					@extend %btn-base
+					display: block
+					margin: 0 auto
+					text-shadow: none
+					background-color: $accent
+					&:hover
+						background-color: darken($accent, 3%)
+						color: darken($color-font, 5%)
+					&:active
+						position: relative
+						top: 1px
+		.news-widget
+			margin-top: 20px
+			padding: 20px 25px
+			background-color: #fff
+			border: 1px solid lighten($color-font, 60%)
+			.news-header
+				font-weight: 600
+			.news-list
+				list-style: none
+				padding: 0
+				margin: 0
+				font-size: 12px
+				li
+					padding: 0
+					margin: 0
+					padding-top: 10px
+					padding-bottom: 10px
+					border-bottom: 1px solid lighten($color-font, 60%)
+					a
+						&:hover
+							text-decoration: none
+					&:last-child
+						border-bottom: none
+					img
+						max-width: 60px
+						width: 100%
+					.title
+						display: inline-block
+						margin-left: 5px
+						width: 142px
+						vertical-align: middle
+
+	main
+		.catalog-filters.sudenav
+			height: 100%
+			width: 100%
+			position: fixed
+			z-index: 2
+			top: $top-header-mobile
+			left: 100%
+			background-color: $background-color
+			overflow-x: hidden
+			transition: 0.5s
+			text-align: center
+			overflow-y: hidden
+			form
+				height: 100vh
+			.catalog-filters
+				overflow-y: scroll
+				.filter-controls
+					&:nth-last-child(2)
+						margin-bottom: 120px
+					label.ui-checkboxradio-label.ui-corner-all.ui-button
+						margin: 0
+						background-color: inherit
+						border: none
+						color: $color-font
+						outline: none
+						box-shadow: none
+						&:active
+							background-color: inherit
+						.ui-checkboxradio-icon.ui-corner-all.ui-icon.ui-icon-background
+							border: 1px solid lighten($color-font, 50%)
+					.filter
+						border: 1px solid lighten($color-font, 60%)
+						border-radius: 3px
+						label
+							outline: none
+							padding-left: 40px
+							padding-right: 40px
+							margin-top: 0
+							.arrow
+								display: inline-block
+								float: right
+								transition: transform .8s
+								&.down-arrow
+									transform: rotate(180deg)
+								&.up-arrow
+									transform: rotate(0deg)
+							&.ui-accordion-header.ui-corner-top.ui-state-default.ui-accordion-header-active.ui-state-active
+								background-color: #fff
+								border: 0px
+								color: $color-font
+						&:hover > label.ui-accordion-header.ui-corner-top.ui-state-default.ui-accordion-header-active.ui-state-active,
+						&:hover > .fields,
+						&:hover > .block
+							background-color: #ededed
+						.input-range
+							border: 1px solid transparent
+							.input-number
+								margin: 0 auto
+								width: 80%
+								.max, .min
+									display: inline-block
+									padding: 6px
+									font-size: 15px
+									width: 45%
+									height: 30px
+									border-radius: 5px
+									border: 1px solid lighten($color-font, 50%)
+							.input-slider
+								width: 80%
+								margin: 20px auto
+								.ui-slider
+									height: 7px
+									& > *
+										z-index: 0
+									.ui-slider-handle
+										border-radius: 50%
+										outline: none
+										top: -7px
+										&:hover
+											background-color: #0094d9
+									.ui-slider-range
+										background-color: #0094d9
+						.block
+							padding: 0
+							.checkbox-list
+								list-style: none
+								margin: 0 auto
+								margin-bottom: 20px
+								padding: 10px 20px 10px
+								border-radius: 5px
+								border: 1px solid lighten($color-font, 60%)
+								overflow-y: scroll
+								max-height: 200px
+								width: 80%
+								li
+									text-align: left
+									margin-bottom: 10px
+									&:last-child
+										margin-bottom: 0px
+									label
+										padding: 0
+										.ui-checkboxradio-icon-space
+											margin-left: 10px
+			.buttons.bottom-fixed
+				position: absolute
+				bottom: 60px
+				padding-top: 10px
+				padding-bottom: 10px
+				width: 100%
+				left: 0
+				right: 0
+				background-color: #fff
+				& button
+					width: 45%
+					@extend %btn-base
+					&.submit
+						background-color: #0094d9
+						color: #fff
+						font-weight: 200
+						box-shadow: inset 0px 1px 0px 0px lighten(#0094d9, 50%)
+		.bread-crumbs
+			display: block
+			list-style: none
+			padding: 0
+			margin: 0
+			margin-top: 1px
+			padding-left: 15px
+			padding-right: 15px
+			li
+				display: inline-block
+				padding: 0
+				margin: 0
+				margin-right: 10px
+				white-space: nowrap
+				a
+					display: inline-block
+					margin-right: 10px
+				.fa
+					display: inline-block
+				&:nth-last-child(2)
+					margin-right: 0
+				&:last-child
+					a
+						margin-left: 10px
+				//	.fa
+				//		display: none
+		.catalog
+			list-style: none
+			padding: 0
+			margin: 0
+			.category
+				display: inline-block
+				margin: 0 10px 10px 0
+				padding: 0
+				text-align: center
+				background-color: #fff
+				border: 1px solid lighten($color-font, 60%)
+				img
+					display: inline-block
+					margin: 0 auto
+					margin-top: 35px
+				a
+					display: block
+					margin: 35px auto
+		h2
+			margin: 0
+			padding: 0
+			font-weight: 200
+		.products
+			.product
+				margin-bottom: 20px
+				margin-right: -1px
+				.image
+					margin-top: 25px
+					img
+						//max-width: 150px
+						max-height: 120px
+						//width: 100%
+						height: 100%
+				padding: 10px 10px 20px 10px
+				border: 1px solid lighten($color-font, 60%)
+				background-color: #fff
+				overflow: hidden
+				.caption
+					margin-top: 10px
+					font-size: 15px
+					line-height: 1.5
+					height: 65px
+				.price, .amount
+					text-align: center
+					margin-top: 10px
+					margin-bottom: 10px
+					font-weight: 600
+				.price
+					margin-top: 10px
+				.description
+					margin-top: 20px
+				.amount
+					.buttons
+						display: inline-block
+						font-weight: 200
+						border: 1px solid lighten($color-font, 60%)
+						border-radius: 3px
+						.text-amount
+							margin: auto 7px
+						.fa
+							font-size: 13px
+							padding: 10px 13px
+							cursor: pointer
+						.fa-plus
+							border-left: 1px solid lighten($color-font, 60%)
+						.fa-minus
+							border-right: 1px solid lighten($color-font, 60%)
+				.buy
+					text-align: center
+					a.btn-buy
+						@extend %btn-base
+						background-color: $accent
+						color: $color-font
+						text-shadow: none
+						&:hover
+							background-color: darken($accent, 3%)
+							color: darken($color-font, 5%)
+						&:active
+							position: relative
+							top: 1px
+				.product-absent
+					height: 44px
+					text-align: center
+					vertical-align: middle
+					line-height: 44px
+					color: red
+		.products.products-list
+			.pagination
+				font-size: 16px
+				.button
+					@extend %btn-base
+					background-color: white
+					color: $color-font
+			.product
+				position: relative
+				z-index: 0
+				border-top: none
+				margin-bottom: 0
+				margin-right: 0
+				.caption
+					height: auto
+				.image
+					margin-top: 25px
+					img
+						max-width: 150px
+						max-height: 120px
+						width: 100%
+						height: 100%
+				&:hover
+					z-index: 1
+					box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3)
+				&:first-child
+					border-top: 1px solid lighten($color-font, 60%)
+				.image
+					margin-top: 14px
+		.product-description
+			.title
+				font-size: 28px
+				font-weight: 400
+			.price-item
+				.top-block
+					position: relative
+					width: 100%
+					border: 1px solid #ddd
+					border-radius: 5px
+					background-color: #fff
+					padding: 18px
+					.brand-logo
+						position: absolute
+						top: -20px
+						right: 20px
+						background-color: #fff
+						border: 1px solid #ddd
+						border-radius: 5px
+						box-shadow: -1px -2px 0 rgba(0,0,0,0.13) inset
+						a
+							img
+								padding: 10.5px 47.5px
+					.header-photo
+						.image-slider
+							.owl-carousel
+								position: relative
+								margin: 10px 20px
+								max-height: 250px
+								max-width: 335px
+								z-index: 0
+								.owl-stage-outer
+									.owl-item
+										.owl-item
+											position: relative
+											width: 100%
+											float: none
+											text-align: center
+											.magnifier-thumb-wrapper
+												display: inline-block
+												outline: none
+												img
+													width: auto
+													display: inline-block
+												.magnifier-lens
+													width: auto
+													margin: auto
+								.owl-controls
+									.owl-nav
+										background-color: #999
+										.owl-prev
+											position: absolute
+											left: -20px
+											top: 85px
+										.owl-next
+											position: absolute
+											right: -20px
+											top: 85px
+										.fa
+											font-size: 28px
+											font-weight: 600
+											color: lighten($color-font, 50%)
+						.magnifier-preview
+							position: absolute
+							max-width: 480px
+							height: 307px
+							top: 0
+							left: 400px
+						.image-carousel
+							.owl-carousel
+								position: relative
+								margin: 10px 20px
+								height: 57px
+								max-width: 328px
+								z-index: 0
+								.owl-stage-outer
+									.owl-item
+										margin-right: 10px
+										.item
+											padding: 10px 5px
+											width: 100%
+											margin: auto
+											border: 1px solid lighten($color-font, 60%)
+											border-radius: 3px
+											&:hover
+												border: 1px solid $color-font
+											img
+												width: auto
+												height: 34px
+												margin: auto
+								.owl-controls
+									.owl-nav
+										background-color: #999
+										.owl-prev, .owl-next
+											position: absolute
+											top: 50%
+											bottom: 50%
+											margin: auto
+											height: 28px
+										.owl-prev
+											left: -20px
+										.owl-next
+											right: -20px
+										.fa
+											font-size: 28px
+											font-weight: 600
+											color: lighten($color-font, 50%)
+					.header-order
+						.price
+							margin-bottom: 20px
+							font-size: 32px
+							font-weight: 600
+							white-space: nowrap
+							.fa
+								color: lighten($color-font, 45%)
+						.buttons
+							text-align: left
+							.buy
+								@extend %btn-base
+								background-color: $accent
+								color: $color-font
+								&:hover
+									background-color: darken($accent, 3%)
+								&:active
+									position: relative
+									top: 1px
+							.product-absent
+								padding-left: 5px
+								color: red
+					.header-additional
+						p
+							margin: 10px auto
+				.bottom-block
+					margin-top: 40px
+					background-color: #fff
+					.nav.nav-tabs
+						padding: 0
+						margin: 0
+						font-size: 0
+						border-bottom: 1px solid lighten($color-font, 60%)
+						background-color: $background-color
+						li
+							display: inline-block
+							list-style: none
+							padding: 0
+							margin: 0
+							font-size: 16px
+							border-top: 1px solid lighten($color-font, 60%)
+							border-left: 1px solid lighten($color-font, 60%)
+							border-right: 1px solid lighten($color-font, 60%)
+							border-top-left-radius: 6px
+							border-top-right-radius: 6px
+							&.active
+								position: relative
+								border-top: 3px solid $accent
+								background-color: #fff
+								&:after
+									display: block
+									position: absolute
+									bottom: -2px
+									content: ''
+									width: 100%
+									height: 5px
+							a
+								display: block
+								padding: 8px 45px
+								margin: 0
+								box-sizing: border-box
+								border: 1px solid transparent
+					.tab-content
+						padding: 16px 32px
+						border-left: 1px solid lighten($color-font, 60%)
+						border-right: 1px solid lighten($color-font, 60%)
+						border-bottom: 1px solid lighten($color-font, 60%)
+						margin-bottom: 40px
+						.tab-pane
+							display: none
+							&.active
+								display: block
+							.options-group
+								.table-params
+									width: 100%
+									tbody
+										tr:nth-child(odd)
+											background-color: $background-color
+										td
+											padding-top: 3px
+											padding-bottom: 1px
+											box-sizing: border-box
+											&.title
+												font-size: 16px
+												font-weight: 600
+												padding-top: 6px
+												padding-bottom: 2px
+		.cart-page
+			.tab-controls
+				.block
+					display: inline-block
+					position: relative
+					padding: 4px 25px 6px
+					background-color: #fff
+					border: 1px solid lighten($color-font, 60%)
+					border-bottom: none
+					border-top-left-radius: 5px
+					border-top-right-radius: 5px
+					bottom: -1px
+					z-index: 1
+			.tabs
+				overflow: hidden
+				.products.products-list
+					.product
+						.caption
+							margin-bottom: 15px
+							height: auto
+						.price
+							white-space: nowrap
+						&:hover
+							box-shadow: none
+							z-index: 0
+				.total.price-total-amount
+					background-color: #fff
+					padding: 20px 35px
+					border: 1px solid lighten($color-font, 60%)
+					& > *
+						margin: 5px auto
+					& > *:first-child,
+					& > *:last-child
+						margin: 0 auto
+					.block-price
+						span
+							font-weight: 600
+					.buy
+						text-align: center
+						a.btn-buy
+							@extend %btn-base
+							background-color: $accent
+							color: $color-font
+							&:hover
+								background-color: darken($accent, 3%)
+								color: darken($color-font, 5%)
+							&:active
+								position: relative
+								top: 1px
+		.page-title
+			margin: 0
+			font-weight: 200
+		.news-container
+			background-color: #fff
+			border: 1px solid lighten($color-font, 60%)
+			border-radius: 5px
+			.news-list
+				list-style: none
+				.news-item
+					min-height: 50px
+					margin-bottom: 20px
+					.image
+						img
+							max-width: 75px
+							width: 100%
+							margin-top: 5px
+					.contant
+						.contant-text
+							font-size: 13px
+		.order-products
+			table, td, th
+				border: 1px solid #ddd
+				text-align: left
+			table
+				border-collapse: collapse
+				width: 100%
+			th, td
+				padding: 15px
+				text-align: center
+			.order-sum-price
+				margin-top: 20px
+				font-weight: 600
+				float: right
+				.text
+					display: inline-block
+					margin-right: 5px
+			.btn-order-submit
+				margin-top: 55px
+				button
+					@extend %btn-base
+		.pagination
+			text-align: center
+			font-size: 0
+			margin: 20px auto
+			li
+				display: inline-block
+				a, span
+					color: $color-font
+					font-size: 16px
+					padding: 8px 14px
+					background-color: #fff
+					border: 1px solid lighten($color-font, 60%)
+					margin-left: -1px
+				a:hover
+					color: $accent
+				&.active
+					span
+						position: relative
+						color: $accent
+						border-color: $accent
+						z-index: 1
+						background: none
+				&.disabled
+					span
+						color: lighten($color-font, 60%)
+
+.register-blanke, .login-panel
+	background-color: #fff
+	border: 1px solid lighten($color-font, 60%)
+	border-radius: 10px
+	.register-heading, .register-body, .login-heading, .login-body
+		width: 55%
+		min-width: 200px
+		margin: 0 auto
+	.register-heading, .login-heading
+		font-size: 24px
+		padding-top: 15px
+		padding-bottom: 5px
+		margin-bottom: 15px
+		border-bottom: 3px solid lighten($color-font, 60%)
+	.register-body, .login-body
+		label
+			display: block
+			margin: 12px 0 3px 0
+		input, select, button
+			outline: none
+			height: 35px
+			width: 100%
+			border-radius: 5px
+			border: 1px solid lighten($color-font, 50%)
+		button
+			display: block
+			margin: 30px auto
+			width: 190px
+			height: 50px
+			background-color: $accent
+			border: none
+			color: #fff
+	.login-body
+		.checkbox
+			input
+				height: auto
+				width: auto
+
+
+footer
+	padding-top: 50px
+	padding-bottom: 60px
+	font-size: 13px
+	color: #8295A3
+	background-color: #DFE4E8
+
+.paranga
+	display: block
+	position: absolute
+	bottom: 0
+	left: 0
+	right: 0
+	background-color: #000
+	opacity: 0
+	z-index: 2
+	transition: opacity .4s ease-in-out
+
+.search-alive
+	display: block
+	position: absolute
+	z-index: 1
+	width: 100%
+	background-color: #fff
+	a
+		display: block
+		width: calc(100% - 10px)
+		padding: 8px 12px
+		white-space: nowrap
+		color: #000
+		overflow: hidden
+		&:hover
+			background-color: darken($background-color, 1%)
+			text-decoration: none
+
+.alert
+	padding: 15px
+	margin-bottom: 20px
+	border: 1px solid transparent
+	border-radius: 4px
+	&.alert-success
+		color: #3c763d
+		background-color: #dff0d8
+		border-color: #d6e9c6
+	&.alert-warning
+		color: #8a6d3b
+		background-color: #fcf8e3
+		border-color: #faebcc
+
+@import "media" // Всегда в конце

@@ -1,0 +1,29 @@
+[33mcommit 3975083cba8e8060455bb0b3d43ac73260a1f9ba[m
+Author: LehaMinigulov <leha.minigulov@gmail.com>
+Date:   Sat Oct 22 21:29:23 2016 +0400
+
+    Type_product 20%(no validation and send in MongoDB)
+
+[33mcommit f7c5aa1ec6eb13fbdcb3022529cc9a96a01e15f8[m
+Author: LehaMinigulov <leha.minigulov@gmail.com>
+Date:   Thu Oct 13 20:40:36 2016 +0400
+
+    Product complite 50%
+
+[33mcommit bb5c4e653757790434351edfb5a0b69908425fef[m
+Author: LehaMinigulov <leha.minigulov@gmail.com>
+Date:   Mon Oct 10 22:33:50 2016 +0400
+
+    Product complite 10%
+
+[33mcommit 371b41c4af5880f1654cae63d81cc29f161ca9e0[m
+Author: LehaMinigulov <leha.minigulov@gmail.com>
+Date:   Mon Oct 10 19:28:55 2016 +0400
+
+    MySQL+MongoDB
+
+[33mcommit 6d3cfc622bada993adf402da10cf000251992c7b[m
+Author: LehaMinigulov <leha.minigulov@gmail.com>
+Date:   Mon Oct 10 19:00:41 2016 +0400
+
+    Base

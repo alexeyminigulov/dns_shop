@@ -1,0 +1,51 @@
+<div class="header">
+	<h1>Новости</h1>
+	<div class="fixed-action-btn create-new-category">
+		<a ui-sref="news.add"
+		class="btn-floating btn-large waves-effect waves-light red">
+			<i class="material-icons">add</i>
+		</a>
+	</div>
+</div>
+
+<ul class="collection  type-products  news">
+	<li class="waves-effect  collection-item avatar type-product"
+	ng-repeat="newItem in vm.news track by newItem.id"
+	ng-click="vm.selectNews(newItem)">
+		<div class="group-info-type-products">
+			<img ng-src="/images/{{ vm.getSourceImg(newItem.picture, 'min') }}" alt="" class="circle">
+			<span class="title">{{ newItem.title }}</span>
+			<p>Id: {{ newItem.id }}</p>
+		</div>
+		<div class="group-buttons">
+			<a class="waves-effect waves-light btn" ng-click="vm.editNews($event, newItem)">
+				<i class="material-icons left">mode_edit</i><span>Редактировать</span>
+			</a>
+			<a class="waves-effect waves-light btn" ng-click="vm.delNews($event, newItem)">
+				<i class="material-icons left">delete</i><span>Удалить</span>
+			</a>
+		</div>
+	</li>
+	<li class="news pagination">
+		<a ng-click="vm.pagination($event)" class="waves-effect waves-light btn">Просмотреть ...</a>
+	</li>
+</ul>
+
+<ui-view></ui-view>
+
+<div class="footer">
+	<div class="group-buttons">
+		<a class="waves-effect waves-light btn disabled"
+		ng-click="vm.selectNews(newItem, 'edit')">
+			<i class="material-icons left">mode_edit</i><span>Редактировать</span>
+		</a>
+		<a class="waves-effect waves-light btn disabled"
+		ng-click="vm.selectNews(newItem, 'open')">
+			<i class="material-icons left">open_in_new</i><span>Показать таблицу</span>
+		</a>
+		<a class="waves-effect waves-light btn disabled"
+		ng-click="vm.selectNews(newItem, 'delete')">
+			<i class="material-icons left">delete</i><span>Удалить</span>
+		</a>
+	</div>
+</div>

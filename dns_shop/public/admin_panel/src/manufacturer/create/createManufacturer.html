@@ -1,0 +1,39 @@
+<div id="modal-new-category" class="modal bottom-sheet">
+	<div class="modal-content">
+		<div class="row">
+			<div class="col s4 offset-s2">
+				<h4>Добавить нового производителя</h4>
+				
+				<form action="#" name="newManufacturerForm" ng-submit="vm.submit($event)" novalidate>
+					<div class="input-field" ng-class="{ 'has-error' : newManufacturerForm.name.$invalid && !newManufacturerForm.name.$pristine }">
+						<input id="name" type="text" class="validate" name="name"
+						ng-model="vm.newManufacturer.name" required>	<!-- Название производителя -->
+						<label for="name">Название</label>
+						<p ng-show="newManufacturerForm.name.$invalid && !newManufacturerForm.name.$pristine" class="help-block">Поле обязательно к заполнению</p>
+					</div>
+					<div class="file-field input-field">
+						<div class="btn">
+							<span>Картинка</span>						<!-- Добавить файл -->
+							<input type="file" file-model="vm.newManufacturer.logotype" ng-model="vm.newManufacturer.logotype" name="logotype" required>
+						</div>
+						<div class="file-path-wrapper">
+							<input class="file-path validate"
+							type="text" placeholder="Загрузить изображение">
+						</div>
+					</div>
+					<div class="input-field">
+						<button type="submit" class="waves-effect waves-light btn" ng-disabled="newManufacturerForm.$invalid">Добавить производителя</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="modal-footer">
+		<a ng-click="vm.closeModalManufacturer($event)"
+		class="modal-action modal-close waves-effect waves-green btn-flat">Back</a>
+	</div>
+</div>
+
+<div class="modal-overlay"></div>

@@ -1,0 +1,59 @@
+.modal.bottom-sheet {     /* Модальное окно для создание ноаой категории */
+
+}
+.modal.bottom-sheet .modal-content > .row > .col.s4.offset-s2 {
+	float: none;
+	margin: 0 auto;
+}
+.help-block {
+	position: relative;
+	margin: 0;
+	top: -18px;
+	height: 25px;
+}
+
+@media only screen and (max-width : 320px) {
+	.modal.bottom-sheet {
+		max-height: 80% !important;
+	}
+	.modal.bottom-sheet .modal-content > .row > .col.s4.offset-s2 {
+		width: 97%;
+	}
+}
+
+@media only screen and (max-width : 480px) and (min-width : 320px) {
+	.modal.bottom-sheet {
+		max-height: 80% !important;
+	}
+	.modal.bottom-sheet .modal-content > .row > .col.s4.offset-s2 {
+		width: 80%;
+	}
+}
+
+@media only screen and (max-width : 680px) and (min-width : 480px) {
+	.modal.bottom-sheet {
+		max-height: 80% !important;
+	}
+	.modal.bottom-sheet .modal-content > .row > .col.s4.offset-s2 {
+		width: 70%;
+	}
+}
+
+@media only screen and (max-width : 992px) and (min-width : 480px) {
+	.modal.bottom-sheet .modal-content > .row > .col.s4.offset-s2 {
+		width: 55%;
+	}
+}
+
+@media only screen and (min-width : 992px) {
+	.modal.bottom-sheet .modal-content > .row > .col.s4.offset-s2{
+		width: 40%;
+	}
+}
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+	.modal.bottom-sheet {
+	  max-height: 455px;
+	}
+}

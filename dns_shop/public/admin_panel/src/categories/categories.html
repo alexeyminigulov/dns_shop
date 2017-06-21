@@ -1,0 +1,48 @@
+<div class="header">
+	<h1>Категории</h1>
+	<div class="fixed-action-btn create-new-category">
+		<a ui-sref="#"
+		ng-click="vm.createCategory($event)"
+		class="btn-floating btn-large waves-effect waves-light red">
+			<i class="material-icons">add</i>
+		</a>
+	</div>
+</div>
+
+<ul class="collection  categories">
+	<li class="waves-effect  collection-item avatar category"
+	ng-repeat="category in vm.categories"
+	ng-click="vm.selectCategory(category)">
+		<div class="group-info-category">
+			<img ng-src="/images/{{ category.logotype }}" alt="" class="circle">
+			<span class="title">{{ category.name }}</span>
+			<p>Id: {{ category._id }}</p>
+		</div>
+		<div class="group-buttons">
+			<a class="waves-effect waves-light btn" ng-click="vm.editCategory($event, category)">
+				<i class="material-icons left">mode_edit</i><span>Редактировать</span>
+			</a>
+			<a class="waves-effect waves-light btn" ng-click="vm.deleteCategory($event, category)">
+				<i class="material-icons left">delete</i><span>Удалить</span>
+			</a>
+		</div>
+	</li>
+</ul>
+
+<ui-view></ui-view>
+
+<div class="footer">
+	<div class="group-buttons">
+		<a class="waves-effect waves-light btn disabled" ng-click="vm.selectCategory(category, 'edit')">
+			<i class="material-icons left">mode_edit</i><span>Редактировать</span>
+		</a>
+		<a class="waves-effect waves-light btn disabled" ng-click="vm.selectCategory(category, 'open')">
+			<i class="material-icons left">open_in_new</i><span>Открыть</span>
+		</a>
+		<a class="waves-effect waves-light btn disabled" ng-click="vm.selectCategory(category, 'delete')">
+			<i class="material-icons left">delete</i><span>Удалить</span>
+		</a>
+	</div>
+</div>
+
+<div class="category-paranga"></div>

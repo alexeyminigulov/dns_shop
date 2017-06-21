@@ -1,0 +1,23 @@
+<div class="header">
+	<h1>Поставки</h1>
+	<div class="fixed-action-btn create-new-category">
+		<a ui-sref="supply.create"
+		class="btn-floating btn-large waves-effect waves-light red">
+			<i class="material-icons">add</i>
+		</a>
+	</div>
+</div>
+
+<ul class="collection supplies">
+	<li class="waves-effect  collection-item avatar  supply"
+	ng-repeat="supply in vm.supplies track by supply.id"
+	ui-sref="supply.open({ id: supply.id })">
+		<div class="group-info-type-products">
+			<p class="number">Номер: №{{ supply.id }}</p>
+			<p class="author">Автор: {{ supply.user.name }}</p>
+			<p class="date">Дата: {{ supply.created_at }}</p>
+		</div>
+	</li>
+</ul>
+
+<ui-view></ui-view>

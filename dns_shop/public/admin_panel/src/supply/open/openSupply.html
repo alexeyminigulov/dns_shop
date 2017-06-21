@@ -1,0 +1,24 @@
+<div class="side-nav-right">
+	<div class="container">
+		
+		<div class="row">
+			<div class="header">
+				<h2 class="title">Описание</h2>
+				<ul class="collection supplies">
+					<li class="waves-effect  collection-item avatar"
+					ng-repeat="product in vm.supply.supply_products">
+						<div class="group-info">
+							<!-- <img ng-src="/images/{{ product.logotype }}" alt="" class="circle"> -->
+							<span class="title">{{ product.product.name }}</span>
+							<p>Id: {{ product.product.id }}</p>
+						</div>
+						<div class="side-right">
+							<span class="amount">{{ product.amount }} штук</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,10 @@
+.group-request-buttons {
+	position: relative;
+	top: 10px;
+	text-align: center;
+}
+@media only screen and (max-width : 390px) {
+	.group-request-buttons :last-child {
+		top: 10px;
+	}
+}

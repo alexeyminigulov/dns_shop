@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="col s7">
+		<div class="input-field col s12  block   units">
+			<input id="name" type="text" class="validate"
+			ng-model="vm.newList.name">
+			<label for="name">Новый список</label>
+		</div>
+	</div>
+	<div class="col s5   add-new-units">
+		<a ng-click="vm.submit($event)" class="waves-effect waves-light btn">Создать</a>
+	</div>
+</div>
+<ul class="collection">
+	<li class="collection-item   hover units"
+	ng-repeat="list_values in vm.lists_values track by list_values.id"
+	ng-click="vm.openValues($event, list_values.id)">
+		<div class="unit">{{ list_values.name }}</div>
+		<div class="delete-unit">
+			<a class="btn-floating   waves-effect waves-light"
+			ng-click="vm.deleteListValue($event, list_values.id)">
+				<i class="material-icons">delete</i>
+			</a>
+		</div>
+	</li>
+</ul>

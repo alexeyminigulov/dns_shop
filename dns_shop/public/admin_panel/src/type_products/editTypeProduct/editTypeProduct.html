@@ -1,0 +1,66 @@
+<div class="side-nav-right">
+	<div class="container">
+		
+		<div class="row">
+			<div class="header type-product">
+				<h1>Редактировать</h1>
+				<div class="fixed-action-btn">
+					<a ui-sref="#"
+					ng-click="vm.closeSideNavRight($event)"
+					class="btn-floating btn-large waves-effect waves-light red">
+						<i class="material-icons">add</i>
+					</a>
+				</div>
+			</div>
+			<form class="col s12 m12">
+				<div class="row">
+					<div class="input-field col s10 m6  block">
+						<input id="name" type="text" class="validate"
+						ng-model="vm.typeProduct.name">
+						<label class="active" for="name">Название таблицы</label>
+					</div>
+					<div class="input-field col s10 m6  block">
+						<input id="semanticUrl" type="text" class="validate"
+						ng-model="vm.typeProduct.semanticUrl">
+						<label class="active" for="semanticUrl">ЧПУ URL</label>
+					</div>
+					<div class="fields">
+						<p class="block">Поля:</p>
+						<div class="col s12 m8">
+							<ul class="collapsible" data-collapsible="accordion">
+								<li>
+									<div class="collapsible-header">Название</div>
+									<div class="collapsible-body"><p>Задано по умолчанию.</p></div>
+								</li>
+								<li>
+									<div class="collapsible-header">Описание</div>
+									<div class="collapsible-body"><p>Задано по умолчанию.</p></div>
+								</li>
+								<li>
+									<div class="collapsible-header">Цена</div>
+									<div class="collapsible-body"><p>Задано по умолчанию.</p></div>
+								</li>
+
+								<li ng-repeat="field in vm.typeProduct.fields track by $index"
+								class="created-field">
+									<div class="collapsible-header">{{field.name}}</div>
+									<div class="collapsible-body">
+										<div class="input-field col s12  block">
+											<input type="text" class="validate"
+												ng-model="field.name">
+											<label class="active">Название поля:</label>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<a ng-click="vm.submitEditTypeProduct($event)"
+					class="waves-effect waves-light btn">Редактировать таблицу
+				</a>
+			</form>
+		</div>
+
+	</div>
+</div>

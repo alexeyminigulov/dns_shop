@@ -1,0 +1,134 @@
+.category-paranga {
+	display: none;
+	position: absolute;
+	top: -130px;
+	left: -370px;
+	right: 0;
+	bottom: -300px;
+	width: 173%;
+	margin: auto;
+	margin-top: -300px;
+	margin-right: -300px;
+	margin-bottom: -500px;
+	opacity: .3;
+	z-index: 1;
+	background-color: #000;
+}
+@media only screen and (max-width : 1300px) {
+	.category-paranga {
+		right: 150px;
+	}
+}
+
+.collection.categories {
+	display: block;
+	padding: 0;
+}
+.collection.categories > .collection-item.avatar {
+	text-align: justify;
+	height: 100px;
+}
+.collection.categories > .collection-item.avatar > .group-info-category {
+	display: inline-block;
+	vertical-align: 20px;
+}
+.collection.categories > .collection-item.avatar > .group-info-category > img {
+	border-radius: 0;
+}
+.collection.categories > .collection-item.avatar::after {
+	content: '';
+	display: inline-block;
+	width: 100%;
+	height: 0;
+}
+.group-buttons {
+	display: inline-block;
+}
+.group-buttons a {
+	display: block;
+}
+.group-buttons a:first-child {
+	margin-bottom: 5px;
+}
+@media only screen and (max-width : 480px) {
+	.collection.categories > .collection-item.avatar > .group-info-category {
+		width: 75%;
+		overflow-x: hidden;
+	}
+	.collection.categories .group-buttons {
+		display: none;
+	}
+	.group-buttons {
+		margin-top: -8px;
+	}
+	.group-buttons a {
+		margin: 0;
+		padding: 0;
+		width: 45px;
+		height: 45px;
+		border-radius: 50%;
+	}
+	.group-buttons a span{
+		display: none;
+	}
+	.group-buttons a i {
+		margin: 0;
+		margin-top: 5px;
+		width: 100%;
+	}
+	ms-bread-crumbs ul > li {
+		display: none;
+	}
+	ms-bread-crumbs li:last-child {
+		display: inline-block;
+		cursor: pointer;
+		vertical-align: 8px;
+	}
+	ms-bread-crumbs li:nth-last-child(2) {
+		display: inline-block;
+		margin-right: 20px;
+	}
+	ms-bread-crumbs li:nth-last-child(2)::after {
+		display: none;
+	}
+	ms-bread-crumbs li:nth-last-child(2) a:last-child {
+		content: url( data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDQ0NC44MjIgNDQ0LjgyMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDQ0LjgyMiA0NDQuODIyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTQyMy4yNjUsMTc4LjI5OGMtNi4xOS03LjEzOS0xNC4yMjktMTAuNzA3LTI0LjEyNi0xMC43MDdIMTk4LjE0OEwyODEuOCw4My45MzdjNy4yMzQtNy4yMjksMTAuODQ4LTE1Ljg5MSwxMC44NDgtMjUuOTgxICAgYzAtMTAuMDg1LTMuNjEzLTE4Ljc0Ny0xMC44NDgtMjUuOTc5bC0yMS40MTMtMjEuMTI5QzI1My4xNTYsMy42MTksMjQ0LjU5LDAsMjM0LjY5MywwYy0xMC4wODksMC0xOC43NTIsMy42MTUtMjUuOTgxLDEwLjg0OCAgIEwyMi44NDgsMTk2LjQyOGMtNy4wNDMsNy40MjMtMTAuNTY0LDE2LjA4NC0xMC41NjQsMjUuOTgxYzAsMTAuMDg5LDMuNTIxLDE4LjY1NCwxMC41NjQsMjUuNjkzbDE4NS44NjQsMTg2LjE1MiAgIGM3LjQyMiw3LjA0MywxNi4wODMsMTAuNTY3LDI1Ljk4MSwxMC41NjdjMTAuMDg1LDAsMTguNjUtMy41MjQsMjUuNjkzLTEwLjU2N2wyMS40MTMtMjEuNjkzICAgYzcuMjM0LTYuODUxLDEwLjg0OC0xNS40MiwxMC44NDgtMjUuNjkzYzAtMTAuMjg0LTMuNjEzLTE4Ljg1My0xMC44NDgtMjUuN2wtODMuNjUyLTgzLjkzOWgyMDAuOTkxICAgYzkuODk2LDAsMTcuOTM2LTMuNTY5LDI0LjEyNi0xMC43MDdjNi4xODQtNy4xMzksOS4yNzQtMTUuNzQ5LDkuMjc0LTI1LjgzOHYtMzYuNTQ1ICAgQzQzMi41NDIsMTk0LjA1LDQyOS40NDgsMTg1LjQzNyw0MjMuMjY1LDE3OC4yOTh6IiBmaWxsPSIjMDM5YmU1Ii8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg== );
+		position: relative;
+		left: 5px;
+		-webkit-transform: scale(1.3);
+		        transform: scale(1.3);
+		padding: 6px;
+	}
+}
+@media only screen and (max-width : 725px) and (min-width : 480px) {
+	.collection.categories > .collection-item.avatar > .group-info-category {
+		width: 50%;
+		overflow-x: hidden;
+	}
+	.group-buttons {
+		margin: 0;
+		padding: 0;
+	}
+	.group-buttons a {
+		margin: 0;
+		padding: 0 5px;
+	}
+	.group-buttons a i {
+		margin-right: 5px;
+	}
+}
+
+.category.ng-enter, .category.ng-move {
+	transition: 0.4s all;
+	opacity: 0;
+}
+.category.ng-enter.ng-enter-active, .category.ng-move.ng-move-active {
+	opacity: 1;
+}
+.category.ng-leave {
+	animation: 0.4s anim_category;
+}
+@keyframes anim_category {
+	from { opacity: 1; }
+	to	 { opacity: 0; }
+}

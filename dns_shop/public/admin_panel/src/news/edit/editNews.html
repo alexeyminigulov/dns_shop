@@ -1,0 +1,53 @@
+<div class="side-nav-right">
+	<div class="container">
+		
+		<div class="row">
+			<div class="header type-product">
+				<h1>Новости</h1>
+				<div class="fixed-action-btn">
+					<a ui-sref="#"
+					ng-click="vm.closeSideNavRight($event)"
+					class="btn-floating btn-large waves-effect waves-light red">
+						<i class="material-icons">add</i>
+					</a>
+				</div>
+			</div>
+			<form class="col s12 m12  text-angular"
+			name="newNewsForm" ng-submit="vm.editNewsSubmit($event)" novalidate>
+				<div class="row">
+					<div class="input-field col s11 m11  block"
+					ng-class="{ 'has-error' : newNewsForm.title.$invalid && !newNewsForm.title.$pristine }">
+						<input id="title" type="text" class="validate"
+						ng-model="vm.news.title" required>
+						<label for="title" class="active">Загаловок</label>
+					</div>
+					<div class="file-field input-field block col s8 m8">
+						<div class="btn">
+							<span>Картинка</span>
+							<input type="file" file-model="vm.news.picture" ng-model="vm.news.picture" name="logotype" required>
+						</div>
+						<div class="file-path-wrapper">
+							<input class="file-path validate"
+							type="text" placeholder="Загрузить изображение">
+						</div>
+					</div>
+					<div class="input-field col s12 m12  block"
+					ng-class="{ 'has-error' : newNewsForm.content.$invalid && !newNewsForm.content.$pristine }">
+						<p>Содержание</p>
+						<div text-angular="text-angular" name="htmlcontent" ng-model="vm.news.content" 
+						ta-disabled='vm.disabled' ng-style='vm.bootstrap'></div>
+						<p>Результат</p>
+						<textarea ng-model="vm.news.content" style="width: 100%" 
+						class="validate" required></textarea>
+					</div>
+					<div class="input-field">
+						<button type="submit" class="waves-effect waves-light btn" ng-disabled="newNewsForm.$invalid">
+							Сохранить изменения
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+</div>

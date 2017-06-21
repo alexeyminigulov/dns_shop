@@ -1,0 +1,57 @@
+<ul id="slide-out" class="side-nav fixed" ng-click="vm.delegatorHideSideNav($event)" >
+	<li class="profile">
+		<ul>
+			<li class="photo"><img ng-src="{{ (vm.user.photo) ? '/images/'+vm.user.photo : '/img/user_profile.jpg' }}"></li>
+			<li class="name">
+				<ul id="show-profile" class="dropdown-content profile-content">
+				    <li><a ui-sref="desc-profile">Профиль</a></li>
+				    <li><a ui-sref="settings-profile">Настройки</a></li>
+				    <li><a href="#">Помощь</a></li>
+				    <li><a href="#">Выход</a></li>
+				</ul>
+				<a href="#!" class="waves-effect waves-light   dropdown-button" data-activates="show-profile">
+					<i class="fa fa-caret-down   right" aria-hidden="true"></i>
+					{{::vm.profile.login}}
+				</a>
+			</li>
+			<li class="role">{{::vm.profile.role.alias}}</li>
+		</ul>
+	</li>
+	<li><a ui-sref="dashboard"
+	class="waves-effect waves-teal logo">Home</a></li>
+	<li><a ui-sref="categories({ subcategory: null })"
+	class="waves-effect waves-teal">Категории</a></li>
+	<li><a ui-sref="requisition"
+	class="waves-effect waves-teal">Заявки</a></li>
+	<li class="no-padding">
+		<ul class="collapsible collapsible-accordion">
+			<li class="bold">
+				<a class="collapsible-header  waves-effect waves-teal">Товары</a>
+				<div class="collapsible-body">
+					<ul>
+						<li><a class="waves-effect" ui-sref="type-products">Виды товаров</a></li>
+						<li><a class="waves-effect" ui-sref="supply">Поставки</a></li>
+						<li><a class="waves-effect" ui-sref="manufacturer">Производители</a></li>
+						<li><a class="waves-effect" ui-sref="lists-values">Списки</a></li>
+						<li><a class="waves-effect" ui-sref="units">Ед. измерения</a></li>
+					</ul>
+				</div>
+			</li>
+			<!--<li class="bold">
+				<a class="collapsible-header  waves-effect waves-teal">Пользователи</a>
+				<div class="collapsible-body">
+					<ul>
+						<li><a class="waves-effect" ui-sref="users">Список</a></li>
+						<li><a class="waves-effect" href="#">Создать</a></li>
+						<li><a class="waves-effect" href="#">Удалить</a></li>
+					</ul>
+				</div>
+			</li>-->
+			<li ng-if="vm.showUser()">
+				<a ui-sref="users"
+				class="waves-effect waves-teal">Пользователи</a>
+			</li>
+		</ul>
+	</li>
+	<li><a class="waves-effect waves-teal logo" ui-sref="news">Новости</a></li>
+</ul>

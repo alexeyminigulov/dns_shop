@@ -1,0 +1,55 @@
+<div class="row">
+  <form class="col s12" name="userForm" ng-submit="vm.submit($event)" novalidate>
+    <div class="row">
+      <!--<div class="input-field col s12"
+      ng-class="{ 'has-error' : userForm.login.$invalid && !userForm.login.$pristine }">
+        <input id="login" type="text" class="validate" ng-model="vm.user.login" required>
+        <label class="active" for="login">Логин</label>
+      </div>-->
+      <!--<div class="input-field col s12"
+      ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+        <input id="email" type="email" class="validate" ng-model="vm.user.email" required>
+        <label class="active" for="email">Email</label>
+      </div>-->
+      <div class="input-field col s12"
+      ng-class="{ 'has-error' : userForm.first_name.$invalid && !userForm.first_name.$pristine }">
+        <input id="first-name" type="text" class="validate" ng-model="vm.user.first_name" required>
+        <label class="active" for="first-name">Имя</label>
+      </div>
+      <div class="input-field col s12"
+      ng-class="{ 'has-error' : userForm.last_name.$invalid && !userForm.last_name.$pristine }">
+        <input id="last-name" type="text" class="validate" ng-model="vm.user.last_name" required>
+        <label class="active" for="last-name">Фамилия</label>
+      </div>
+      <div class="input-field col s12"
+      ng-class="{ 'has-error' : userForm.sex.$invalid && !userForm.sex.$pristine }">
+        <!--<input id="sex" type="text" class="validate" ng-model="vm.user.sex" required>-->
+        <!--<label class="active" for="sex">Пол</label>-->
+				<select ng-model="vm.user.sex"
+				style="display: block">
+					<option ng-selected="!vm.user.sex"
+					disabled>Укажите пол</option>
+					<option value="male" ng-selected="{{'male' == vm.user.sex}}">Мужской</option>
+					<option value="female" ng-selected="{{'female' == vm.user.sex}}">Женский</option>
+				</select>
+				<label style="top: 5px" class="active" for="sex">Пол</label>
+      </div>
+      <div class="input-field col s12">
+        <input id="birth-date" type="date" class="datepicker">
+        <label class="active" for="birth-date">День рождения</label>
+      </div>
+      
+			<div class="file-field input-field col s12">
+				<div class="btn">
+					<span>Фото</span>
+					<input type="file" file-model="vm.user.photo" ng-model="vm.user.photo">
+				</div>
+				<div class="file-path-wrapper">
+					<input class="file-path validate" type="text" placeholder="Загрузить фотографию">
+				</div>
+			</div>
+      
+    </div>
+    <button type="submit" class="waves-effect waves-light btn" ng-disabled="userForm.$invalid">Сохранить</button>
+  </form>
+</div>

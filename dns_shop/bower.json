@@ -1,0 +1,31 @@
+{
+  "name": "optimizedhtml",
+  "description": "OptimizedHTML - Start HTML Template",
+  "main": "index.js",
+  "authors": [
+    "WebDesign Master"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "resources/assets/libs/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "magnifier": "*",
+    "owl.carousel": "^2.2.1",
+    "bootstrap": "^3.3.7",
+    "fancybox": "^3.0.47",
+    "jquery-ui": "^1.12.1",
+    "handlebars": "^4.0.5",
+    "typeahead.js": "^0.11.1",
+    "knockout": "^3.4.2",
+    "pikaday": "^1.5.1",
+    "moment": "^2.18.1"
+  }
+}

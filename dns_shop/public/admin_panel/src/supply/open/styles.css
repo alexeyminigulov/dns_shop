@@ -1,0 +1,11 @@
+.side-nav-right .header .title {
+	font-size: 2.0rem;
+}
+.side-nav-right .collection.supplies .collection-item .group-info {
+	margin-top: 10px;
+}
+.side-nav-right .collection.supplies .collection-item .side-right {
+	position: absolute;
+	top: 35px;
+	right: 20px;
+}

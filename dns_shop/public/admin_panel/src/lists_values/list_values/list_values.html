@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="col s7">
+		<div class="input-field col s12  block   units">
+			<input id="name" type="text" class="validate"
+			ng-model="vm.newValue.name">
+			<label for="name">Новое значение</label>
+		</div>
+	</div>
+	<div class="col s5   add-new-units">
+		<a ng-click="vm.submitValue($event)" class="waves-effect waves-light btn">Добавить</a>
+	</div>
+</div>
+<ul class="collection">
+	<li class="collection-item    units" ng-repeat="value in vm.list_values track by value.id">
+		<div class="unit">{{ value.name }}</div>
+		<div class="delete-unit">
+			<a ng-click="vm.deleteValue($event, value.id)" class="btn-floating   waves-effect waves-light">
+				<i class="material-icons">delete</i>
+			</a>
+		</div>
+	</li>
+</ul>

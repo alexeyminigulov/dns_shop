@@ -1,0 +1,61 @@
+<!-- Modal Structure -->
+<div id="modal-new-category" class="modal bottom-sheet">
+	<div class="modal-content">
+		<div class="row">
+			<div class="col s4 offset-s2">
+				<h4>Создать новую категорию</h4>
+				
+				<form action="#" name="newCategoryForm" ng-submit="vm.newCategorySubmit($event)" novalidate>
+
+					<div class="input-field" ng-class="{ 'has-error' : newCategoryForm.name.$invalid && !newCategoryForm.name.$pristine }">
+						<input id="name" type="text" class="validate" name="name"
+						ng-model="vm.newCategory.name" required>	<!-- Имя категории -->
+						<label for="name">Название</label>
+						<p ng-show="newCategoryForm.name.$invalid && !newCategoryForm.name.$pristine" class="help-block">Поле обязательно к заполнению</p>
+					</div>
+
+					<div class="input-field select2">
+						<label>Materialize Select</label>
+						<select ng-model="vm.newCategory.tableId">
+							<option value="" selected>Без привязки к таблице</option>
+							<option ng-repeat="product in vm.listProducts"
+							value="{{product._id}}">{{product.name}}</option>
+						</select>
+					</div>
+
+					<div class="input-field"
+					ng-class="{ 'has-error' : newCategoryForm.semanticUrl.$invalid && !newCategoryForm.semanticUrl.$pristine }">
+						<input id="semantic-url" type="text" name="semanticUrl" ng-pattern="vm.regex.semanticUrl"
+						class="validate" ng-model="vm.newCategory.semanticUrl" required>	<!-- ЧПУ URL -->
+						<label for="semantic-url">ЧПУ URL</label>
+						<p ng-show="newCategoryForm.semanticUrl.$invalid && !newCategoryForm.semanticUrl.$pristine" class="help-block">Обязательное поле. Только латинские буквы</p>
+					</div>
+
+					<div class="file-field input-field">
+						<div class="btn">
+							<span>Картинка</span>						<!-- Добавить файл -->
+							<input type="file" file-model="vm.newCategory.logotype" ng-model="vm.newCategory.logotype" name="logotype" required>
+						</div>
+						<div class="file-path-wrapper">
+							<input class="file-path validate"
+							type="text" placeholder="Загрузить изображение">
+						</div>
+					</div>
+
+					<div class="input-field">
+						<button type="submit" class="waves-effect waves-light btn" ng-disabled="newCategoryForm.$invalid">Создать категорию</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<div class="modal-footer">
+		<a ui-sref="#"
+		ng-click="vm.closeModalCategory($event)"
+		class="modal-action modal-close waves-effect waves-green btn-flat">Back</a>
+	</div>
+</div>
+
+<div class="modal-overlay"></div>

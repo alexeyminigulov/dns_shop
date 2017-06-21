@@ -1,0 +1,74 @@
+<div id="modal-edit-user" class="modal bottom-sheet">
+	<div class="modal-content">
+		<div class="row">
+			<div class="col s4 offset-s2">
+				<h4>Редактировать пользователя</h4>
+				
+				<form action="#" name="editUserForm" ng-submit="vm.editUserSubmit($event)" novalidate>
+
+					<div class="input-field">
+						<input id="login" type="text" class="validate" disabled
+						ng-model="vm.user.login" name="login">
+						<label class="active" for="login">Login</label>
+					</div>
+
+					<div class="input-field">
+						<input id="email" type="text" class="validate" disabled
+						ng-model="vm.user.email" name="email">
+						<label class="active" for="email">Email</label>
+					</div>
+
+					<div class="input-field select2">
+						<label>Задать роль</label>
+						<select ng-model="vm.user.role_id">
+							<option ng-repeat="role in vm.roles"
+							ng-selected="{{role.id == vm.user.role_id}}"
+							value="{{role.id}}">
+								{{role.name}}
+							</option>
+						</select>
+					</div>
+
+					<div class="input-field">
+						<input id="first-name" type="text" class="validate" disabled
+						ng-model="vm.user.first_name" name="first-name">
+						<label class="active" for="first-name">Имя</label>
+					</div>
+
+					<div class="input-field">
+						<input id="last-name" type="text" class="validate" disabled
+						ng-model="vm.user.last_name" name="last-name">
+						<label class="active" for="last-name">Фамилия</label>
+					</div>
+
+					<div class="input-field">
+						<input id="sex" type="text" class="validate" disabled
+						ng-model="vm.user.sex" name="sex">
+						<label class="active" for="sex">Пол</label>
+					</div>
+
+					<div class="input-field">
+						<input id="birth-date" type="text" class="validate" disabled
+						ng-model="vm.user.birth_date" name="birth-date">
+						<label class="active" for="birth-date">Дата рождения</label>
+					</div>
+
+					<div class="input-field">
+						<button type="submit" ng-disabled="editUserForm.$invalid"
+						class="waves-effect waves-light btn">Сохранить изменения</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<div class="modal-footer">
+		<a ui-sref="#"
+		ng-click="vm.closeModalUser($event)"
+		class="modal-action modal-close waves-effect waves-green btn-flat">Back</a>
+	</div>
+</div>
+
+
+<div class="modal-overlay"></div>

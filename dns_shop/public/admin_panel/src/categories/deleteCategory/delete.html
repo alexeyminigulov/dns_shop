@@ -1,0 +1,10 @@
+<div id="modal-delete-category" class="modal">
+	<div class="modal-content">
+		<h4>Мусорка</h4>
+		<p>Вы действительно хотите удалить категорию "{{ vm.category.name }}" со всеми вложенными под категориями?</p>
+	</div>
+	<div class="modal-footer">
+		<a ng-click="vm.submit($event)" class="modal-action modal-close waves-effect waves-green btn-flat">Удалить</a>
+		<a ui-sref="^" class="modal-action modal-close waves-effect waves-green btn-flat">Отмена</a>
+	</div>
+</div>

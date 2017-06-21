@@ -1,0 +1,109 @@
+<div class="side-nav-right">
+	<div class="container">
+		
+		<div class="row">
+			<div class="header type-product">
+				<h1>Создать</h1>
+				<div class="fixed-action-btn">
+					<a ng-click="vm.close($event)"
+					class="btn-floating btn-large waves-effect waves-light red">
+						<i class="material-icons">add</i>
+					</a>
+				</div>
+			</div>
+			<form class="col s12 m12"
+			name="userForm" ng-submit="vm.submit($event)" novalidate>
+				<div class="row">
+					<div class="input-field col s10 m6  block"
+					ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+						<input id="name" type="text" class="validate"
+						ng-model="vm.product.name" required>
+						<label class="active" for="name">Название</label>
+					</div>
+					<div class="input-field col s10 m6  block"
+					ng-class="{ 'has-error' : userForm.manufacturer_id.$invalid && !userForm.manufacturer_id.$pristine }">
+						<label for="manufacturer" class="browser-default  active">
+							Прроизводитель
+						</label>
+						<select
+						ng-model="vm.product.manufacturer_id" 
+						id="manufacturer"
+						class="browser-default" required>
+							<option ng-repeat="value in vm.manufacturers"
+							ng-selected="{{value.id == vm.product.manufacturer_id}}"
+							value="{{value.id}}">{{value.name}}</option>
+						</select>
+					</div>
+					<div class="input-field col s10 m6  block"
+					ng-class="{ 'has-error' : userForm.description.$invalid && !userForm.description.$pristine }">
+						<textarea id="description" type="text" class="validate materialize-textarea"
+						ng-model="vm.product.description" required></textarea>
+						<label class="active" for="description">Описание</label>
+					</div>
+					<div class="input-field col s10 m6  block"
+					ng-class="{ 'has-error' : userForm.price.$invalid && !userForm.price.$pristine }">
+						<input id="price" type="number" class="validate" min="0" step="1"
+						ng-model="vm.product.price" required>
+						<label class="active" for="price">Цена</label>
+					</div>
+					<div class="input-field col s10 m6  block"
+					ng-repeat="field in vm.typeProduct.fields track by $index">
+						<div class="type-integer" ng-if="field.type.name==='integer'"
+						ng-class="{ 'has-error' : userForm.fields[$index].$invalid && !userForm.fields[$index].$pristine }">
+							<input type="number" class="validate" step="1" 
+							min="{{ field.type.min }}" value="1" max="{{ field.type.max }}"
+							ng-model="vm.product.fields[$index]" required>
+							<label>{{ field.name }}, {{ field.type.unit }}</label>
+						</div>
+						<div class="type-list" ng-if="field.type.name==='list'"
+						ng-class="{ 'has-error' : userForm.fields[$index].$invalid && !userForm.fields[$index].$pristine }">
+							<label for="{{$index}}" class="browser-default active">
+								{{ field.name }}
+							</label>
+							<select string-to-number ng-model="vm.fields[$index]" required
+							id="{{ $index }}" ng-change="vm.toInt($index)" class="browser-default">
+								<option ng-repeat="value in field.type.values track by value.id"
+								value="{{value.id}}">{{value.name}}</option>
+							</select>
+						</div>
+						<div class="type-string" ng-if="field.type.name==='string'"
+						ng-class="{ 'has-error' : userForm.fields[$index].$invalid && !userForm.fields[$index].$pristine }">
+							<input type="text" class="validate"
+							ng-model="vm.product.fields[$index]" required>
+							<label class="active">{{ field.name }}</label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="photo create-product">
+					<div class="file-field input-field">
+						<div class="btn">
+							<span>File</span>
+							<input type="file" custom-on-change="vm.addPhoto">
+						</div>
+						<div class="file-path-wrapper">
+							<input class="file-path validate" type="text">
+						</div>
+					</div>
+					<ul class="collection">
+						<li class="collection-item avatar" ng-repeat="image in vm.product.images">
+							<canvas style="border-radius: 0" 
+							canvas-draw-image="image" class="circle"></canvas>
+							<span class="title">Название: {{ image.name }}</span>
+							<p>Размер: {{ image.size | bytes:kB }}<br>
+								Тип: {{ image.type }}
+							</p>
+							<a class="secondary-content btn-floating   waves-effect waves-light" 
+							ng-click="vm.delImage(image)">
+								<i class="material-icons">delete</i>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<button type="submit" class="waves-effect waves-light btn" ng-disabled="userForm.$invalid">Сохранить</button>
+			</form>
+		</div>
+
+	</div>
+</div>

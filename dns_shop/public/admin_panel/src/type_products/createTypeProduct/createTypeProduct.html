@@ -1,0 +1,162 @@
+<div class="side-nav-right">
+	<div class="container">
+		
+		<div class="row">
+			<div class="header type-product">
+				<h1>Создать таблицу</h1>
+				<div class="fixed-action-btn">
+					<a ui-sref="#"
+					ng-click="vm.closeSideNavRight($event)"
+					class="btn-floating btn-large waves-effect waves-light red">
+						<i class="material-icons">add</i>
+					</a>
+				</div>
+			</div>
+			<form class="col s12 m12">
+				<div class="row">
+					<div class="input-field col s10 m6  block">
+						<input id="name" type="text" class="validate"
+						ng-model="vm.newTypeProduct.name">
+						<label for="name">Название таблицы</label>
+					</div>
+					<div class="input-field col s10 m6  block">
+						<input id="semanticUrl" type="text" class="validate"
+						ng-model="vm.newTypeProduct.semanticUrl">
+						<label for="semanticUrl">ЧПУ URL</label>
+					</div>
+					<div class="fields">
+						<p class="block">Поля:</p>
+						<div class="col s12 m8">
+							<ul class="collapsible" data-collapsible="accordion">
+								<li>
+									<div class="collapsible-header">Название</div>
+									<div class="collapsible-body"><p>Задано по умолчанию.</p></div>
+								</li>
+								<li>
+									<div class="collapsible-header">Производитель</div>
+									<div class="collapsible-body"><p>Задано по умолчанию.</p></div>
+								</li>
+								<li>
+									<div class="collapsible-header">Описание</div>
+									<div class="collapsible-body"><p>Задано по умолчанию.</p></div>
+								</li>
+								<li>
+									<div class="collapsible-header">Цена</div>
+									<div class="collapsible-body"><p>Задано по умолчанию.</p></div>
+								</li>
+
+								<li ng-repeat="field in vm.newTypeProduct.fields track by $index"
+								class="created-field">
+									<div class="collapsible-header">
+										{{field.name}}<a ng-click="vm.removeField($event, $index)"
+											class="waves-effect waves-light btn">Удалить</a>
+									</div>
+									<div class="collapsible-body">
+										<div class="input-field col s12 m12  block">
+											<input type="text" class="validate"
+												ng-model="field.name">
+											<label class="active">Название поля:</label>
+										</div>
+										<div class="input-field col s12 m12  block">
+											<label class="browser-default active">Тип поля:</label>
+											<select ng-model="field.type.name" class="browser-default  select-type">
+												<option value="" selected>Выбирете тип поля</option>
+												<option value="string">Строка</option>
+												<option value="integer">Число</option>
+												<option value="list">Список</option>
+											</select>
+										</div>
+										<div class="type-integer" ng-show="field.type.name==='integer'">
+											<div class="input-field col s12 m12 block">
+												<label class="browser-default active">Единицы измерения:</label>
+												<select ng-model="field.type.unit" class="browser-default">
+													<option value="" selected>Выбирете ед. измерения</option>
+													<option ng-repeat="unit in vm.units track by $index"
+													value="{{unit.id}}">{{unit.name}}</option>
+												</select>
+											</div>
+											<div class="input-field col s10 m6  block">
+												<input type="number" class="validate"
+												ng-model="field.type.min">
+												<label class="active">Минимум</label>
+											</div>
+											<div class="input-field col s10 m6  block">
+												<input type="number" class="validate"
+												ng-model="field.type.max">
+												<label class="active">Максимум</label>
+											</div>
+										</div>
+										<div class="type-list" ng-show="field.type.name==='list'">
+											<div class="input-field col s12 m12  block">
+												<label class="browser-default active">Список:</label>
+												<select ng-model="field.type.listValue" class="browser-default">
+													<option value="" selected>Выбирете список</option>
+													<option ng-repeat="list in vm.listsValue track by $index"
+													value="{{list.id}}">{{list.name}}</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+
+							<div class="new-field  z-depth-5">
+								<p>Создать новое поле</p>
+								<div class="input-field col s12 m12  block">
+									<input id="name-field" type="text" class="validate"
+									ng-model="vm.field.name">
+									<label for="name-field">Название поля</label>
+								</div>
+								<div class="input-field col s12 m12  block">
+									<label class="browser-default">Тип поля:</label>
+									<select ng-model="vm.field.type.name" class="browser-default  select-type">
+										<option value="" selected>Выбирете тип поля</option>
+										<option value="string">Строка</option>
+										<option value="integer">Число</option>
+										<option value="list">Список</option>
+									</select>
+								</div>
+								<div class="type-integer" ng-show="vm.field.type.name==='integer'">
+									<div class="input-field col s12 m12  block">
+										<label class="browser-default">Единицы измерения:</label>
+										<select ng-model="vm.field.type.unit" class="browser-default">
+											<option value="" selected>Выбирете ед. измерения</option>
+											<option ng-repeat="unit in vm.units track by $index"
+											value="{{unit.id}}">{{unit.name}}</option>
+										</select>
+									</div>
+									<div class="input-field col s10 m6  block">
+										<input id="min" type="number" class="validate"
+										ng-model="vm.field.type.min">
+										<label for="min">Минимум</label>
+									</div>
+									<div class="input-field col s10 m6  block">
+										<input id="max" type="number" class="validate"
+										ng-model="vm.field.type.max">
+										<label for="max">Максимум</label>
+									</div>
+								</div>
+								<div class="type-list" ng-show="vm.field.type.name==='list'">
+									<div class="input-field col s12 m12  block">
+										<label class="browser-default">Список:</label>
+										<select ng-model="vm.field.type.listValue" class="browser-default">
+											<option value="" selected>Выбирете список</option>
+											<option ng-repeat="list in vm.listsValue track by $index"
+											value="{{list.id}}">{{list.name}}</option>
+										</select>
+									</div>
+								</div>
+								<a ng-click="vm.createField($event)"
+								class="waves-effect waves-light btn">Создать поле</a>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<a ng-click="vm.submit($event)"
+								class="waves-effect waves-light btn">Создать новую таблицу</a>
+			</form>
+		</div>
+
+	</div>
+</div>

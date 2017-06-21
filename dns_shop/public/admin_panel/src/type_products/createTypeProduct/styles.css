@@ -1,0 +1,165 @@
+.side-nav-right > .container {
+  left: 0;
+  margin: 0;
+  width: 96%;
+  max-width: 96%;
+}
+.side-nav-right .new-field label.browser-default {
+  display: none;
+}
+
+.collapsible-header {
+	position: relative;
+}
+
+
+@-webkit-keyframes widthResize {
+	from { left: 100%; right: -100%; }
+	to { left: 0; right: 0; }
+}
+
+
+@keyframes widthResize {
+	from { left: 100%; right: -100%; }
+	to { left: 0; right: 0; }
+}
+.side-nav-right {         /*   Всплывающая форма для создание/редактирование таблицы товара   */
+  position: absolute;
+  top: 55px;
+  bottom: 0;
+  right: 0;
+  margin-left: 0;
+  z-index: 900;
+  overflow-y: auto;
+  padding-bottom: 15px;
+  background-color: #fff;
+
+  /*animation: widthResize .3s linear 1;*/
+  -webkit-animation-name: widthResize;
+		  animation-name: widthResize;
+  -webkit-animation-duration: .3s;
+		  animation-duration: .3s;
+  -webkit-animation-timing-function: linear;
+		  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+		  animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+		  animation-fill-mode: forwards;
+}
+@-webkit-keyframes widthResizeClose {
+	from { left: 0; right: 0; }
+	to { left: 100%; right: -100%; }
+}
+@keyframes widthResizeClose {
+	from { left: 0; right: 0; }
+	to { left: 100%; right: -100%; }
+}
+.side-nav-right.close-side-nav-right {
+  -webkit-animation-name: widthResizeClose;
+		  animation-name: widthResizeClose;
+  -webkit-animation-duration: .3s;
+		  animation-duration: .3s;
+  -webkit-animation-timing-function: linear;
+		  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+		  animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+		  animation-fill-mode: forwards;
+}
+@media only screen and (max-width : 992px) {
+	  .side-nav-right {
+		margin-left: 0;
+	  }
+	}
+@-webkit-keyframes rotateButtonAdd {
+	from { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+	to { -webkit-transform: rotate(45deg); transform: rotate(45deg); }
+}
+@keyframes rotateButtonAdd {
+	from { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+	to { -webkit-transform: rotate(45deg); transform: rotate(45deg); }
+}
+.side-nav-right > .fixed-action-btn {   /*  Кнопка закрыть для формы создание/редактирование таблицы товара  */
+  -webkit-animation-name: rotateButtonAdd;
+		  animation-name: rotateButtonAdd;
+  -webkit-animation-duration: .3s;
+		  animation-duration: .3s;
+  -webkit-animation-timing-function: linear;
+		  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+		  animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+		  animation-fill-mode: forwards;
+
+  padding: 0;
+}
+@-webkit-keyframes rotateButtonAddClose {
+	from { -webkit-transform: rotate(45deg); transform: rotate(45deg); }
+	to { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+}
+@keyframes rotateButtonAddClose {
+	from { -webkit-transform: rotate(45deg); transform: rotate(45deg); }
+	to { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+}
+.side-nav-right > .fixed-action-btn.close {
+  -webkit-animation-name: rotateButtonAddClose;
+		  animation-name: rotateButtonAddClose;
+  -webkit-animation-duration: .28s;
+		  animation-duration: .28s;
+  -webkit-animation-timing-function: linear;
+		  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+		  animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+		  animation-fill-mode: forwards;
+}
+
+
+.header.type-product {
+  
+}
+.header.type-product > h1 {
+  font-size: 35px;
+  vertical-align: middle;
+  position: relative;
+  top: -13px;
+  left: 13px;
+}
+.header.type-product > .fixed-action-btn {
+  
+}
+@media only screen and (max-width : 480px) {
+  .side-nav-right {
+	top: 29px;
+  }
+  .header.type-product {
+	text-align: justify;
+	height: 80px;
+  }
+  .header.type-product:after {
+	display: inline-block;
+	content: '';
+	height: 0;
+	width: 100%;
+  }
+  .header.type-product > h1 {
+	display: inline-block;
+	position: static;
+	margin: 0;
+	margin-left: 10px;
+	font-size: 25px;
+  }
+  .header.type-product > .fixed-action-btn {
+	position: static;
+	display: inline-block;
+	top: 40px;
+	bottom: 0;
+  }
+  .header.type-product > .fixed-action-btn a {
+	width: 50px;
+	height: 50px;
+  }
+  .header.type-product > .fixed-action-btn a i {
+	line-height: 50px;
+  }
+}

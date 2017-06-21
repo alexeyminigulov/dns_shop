@@ -1,0 +1,17 @@
+.side-nav-right .header .title {
+	font-size: 2.0rem;
+}
+.collection.supplies.create .collection-item.avatar {
+	min-height: 65px;
+	padding-top: 5px; 
+	padding-bottom: 5px; 
+}
+.collection.supplies.create .collection-item.avatar .side-right {
+	top: 15px;
+}
+.collection.supplies.create .collection-item.avatar .side-right .amount {
+	margin-right: 10px;
+}
+form[name="addProductForm"] .input-field p {
+	top: 46px;
+}

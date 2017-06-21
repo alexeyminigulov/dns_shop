@@ -1,0 +1,66 @@
+<div id="modal-new-category" class="modal bottom-sheet">
+	<div class="modal-content">
+		<div class="row">
+			<div class="col s4 offset-s2">
+				<h4>Редактировать категорию</h4>
+				
+				<form action="#" name="editCategoryForm" ng-submit="vm.editCategorySubmit($event)" novalidate>
+
+					<div class="input-field" ng-class="{ 'has-error' : editCategoryForm.name.$invalid && !editCategoryForm.name.$pristine }">
+						<input id="name" type="text" class="validate"
+						ng-model="vm.category.name" name="name" required>	<!-- Имя категории -->
+						<label class="active" for="name">Название</label>
+						<p ng-show="editCategoryForm.name.$invalid && !editCategoryForm.name.$pristine" class="help-block">Поле обязательно к заполнению</p>
+					</div>
+
+					<div class="input-field select2">
+						<label>Привязать таблицу</label>
+						<select ng-model="vm.category.table_id">
+							<option value=""
+							ng-selected="!vm.category.hasOwnProperty(table_id)">Без привязки к таблице</option>
+							<option ng-repeat="product in vm.listProducts"
+							ng-selected="{{product._id == vm.category.table_id}}"
+							value="{{product._id}}">
+								{{product.name}}
+							</option>
+						</select>
+					</div>
+
+					<div class="input-field"
+					ng-class="{ 'has-error' : editCategoryForm.semanticUrl.$invalid && !editCategoryForm.semanticUrl.$pristine }">
+						<input id="semantic-url" type="text" name="semanticUrl" required 
+						class="validate" ng-model="vm.category.semanticUrl" ng-pattern="vm.regex.semanticUrl">	<!-- ЧПУ URL -->
+						<label class="active" for="semantic-url">ЧПУ URL</label>
+						<p ng-show="editCategoryForm.semanticUrl.$invalid && !editCategoryForm.semanticUrl.$pristine" class="help-block">Обязательное поле. Только латинские буквы</p>
+					</div>
+
+					<div class="file-field input-field">
+						<div class="btn">
+							<span>Картинка</span>						<!-- Добавить файл -->
+							<input type="file" file-model="vm.category.logotype">
+						</div>
+						<div class="file-path-wrapper">
+							<input class="file-path validate"
+							type="text" placeholder="Загрузить изображение">
+						</div>
+					</div>
+
+					<div class="input-field">
+						<button type="submit" ng-disabled="editCategoryForm.$invalid"
+						class="waves-effect waves-light btn">Сохранить изменения</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<div class="modal-footer">
+		<a ui-sref="#"
+		ng-click="vm.closeModalCategory($event)"
+		class="modal-action modal-close waves-effect waves-green btn-flat">Back</a>
+	</div>
+</div>
+
+
+<div class="modal-overlay"></div>

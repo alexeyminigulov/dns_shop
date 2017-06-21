@@ -1,0 +1,99 @@
+@media only screen and (max-width: 992px) {
+  .side-nav.fixed {
+    transform: translateX(0);
+  }
+  .side-nav .collapsible.collapsible-accordion > li > .collapsible-header {
+    padding-left: 16px;
+  }
+}
+
+.side-nav.fixed
+
+.side-nav.fixed a {
+  padding: 0 30px;
+}
+.side-nav.fixed .profile {
+  padding: 0;
+}
+.side-nav.fixed .profile li.name a {
+  white-space: nowrap;
+}
+.side-nav.fixed .profile ul {
+  position: relative;
+  height: 180px;
+  background-color: #ee6e73;
+}
+.side-nav.fixed .profile ul li {
+  position: absolute;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+.side-nav.fixed .profile ul li.name {
+  font-size: 16px;
+  top: 87px;
+  left: 103px;
+}
+.side-nav.fixed .profile ul li.name .waves-effect {
+  padding: 0 10px;
+  color: white;
+}
+.side-nav.fixed .profile ul li.name .waves-effect i {
+  padding-top: 0px;
+  padding-left: 10px;
+  margin: 0;
+  color: white;
+}
+.side-nav.fixed .profile ul li.role {
+  display: block;
+  top: 0;
+  bottom: 0;
+  left:0;
+  right:0;
+  height: 65px;
+  line-height: 65px;
+  font-size: 27px;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+}
+.side-nav.fixed .profile ul li.photo {
+  position: absolute;
+  padding: 0;
+  width: 90px;
+  height: 90px;
+  bottom: 22px;
+  left: 14px;
+  border: 4px solid #f44336;
+  border-radius: 100%;
+}
+.side-nav.fixed .profile ul li img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  box-sizing: border-box;
+}
+.side-nav.fixed .profile ul ul.profile-content {
+  height: 205px;
+  background-color: white;
+  width: 132px !important;
+}
+.side-nav.fixed .profile ul ul.profile-content > li {
+  display: block;
+  position: static;
+  text-align: center;
+  width: 100%;
+}
+.side-nav.fixed .profile ul ul.profile-content > li > a {
+  line-height: 53px;
+  padding: 0;
+}
+.side-nav li.no-padding:hover {
+  background-color: white;
+}
+
+/* Paranga */
+#sidenav-overlay {
+  height: 120% !important;
+}

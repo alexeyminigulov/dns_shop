@@ -1,0 +1,70 @@
+<div class="side-nav-right">
+	<div class="container">
+		
+		<div class="row">
+			<div class="header">
+				<h2 class="title">Новая поставка</h2>
+				<div class="col s12 m12">
+					<div class="row">
+						<div class="fields">
+							<p class="block">Товары:</p>
+							<div class="col s12 m8">
+								<ul class="collection supplies create">
+									<li class="waves-effect  collection-item avatar"
+									ng-repeat="product in vm.newSupply.products">
+										<div class="group-info">
+											<!-- <img ng-src="/images/{{ product.logotype }}" alt="" class="circle"> -->
+											<span class="title">{{ product.name }}</span>
+										</div>
+										<div class="side-right">
+											<span class="amount">{{ product.amount }} штук</span>
+											<span class="btn-close">
+												<a class="btn-floating waves-effect waves-light"
+												ng-click="vm.removeProduct($event, product)">
+													<i class="material-icons">delete</i>
+												</a>
+											</span>
+										</div>
+									</li>
+								</ul>
+
+								<form action="#" name="addProductForm" ng-submit="vm.addProduct($event)" novalidate>
+									<div class="new-field  z-depth-5"">
+									<p>Выберете товар:</p>
+									
+									<div class="input-field" ng-class="{ 'has-error' : addProductForm.name.$invalid && !newCategoryForm.name.$pristine }">
+										<!-- <input id="name" type="text" class="validate" name="name"
+										ng-model="vm.product.name" ng-change="vm.searchProductByName($event)" required> -->
+										<input id="name" type="text"
+										ng-model="vm.ngModelOptionsSelected" ng-model-options="vm.modelOptions"
+										uib-typeahead="state for state in vm.states | filter:$viewValue | limitTo:8"
+										class="form-control validate" autocomplete="off" required>
+										<label for="name">Наименование товара:</label>
+									</div>
+
+									<div class="input-field" ng-class="{ 'has-error' : addProductForm.amount.$invalid && !newCategoryForm.amount.$pristine }">
+										<input id="amount" type="number" value="1" step="1" class="validate" name="amount"
+										ng-model="vm.product.amount" required>	<!-- Имя категории -->
+										<label for="amount">Количество:</label>
+									</div>
+
+									<div class="input-field">
+										<button type="submit" class="waves-effect waves-light btn" ng-disabled="addProductForm.$invalid">Добавить товар</button>
+									</div>
+
+									</div>
+								</form>
+
+
+
+							</div>
+						</div>
+					</div>
+					<a ng-click="vm.submit($event)"
+									class="waves-effect waves-light btn">Выполнить поставку</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

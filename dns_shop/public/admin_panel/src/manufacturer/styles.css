@@ -1,0 +1,6 @@
+.collection.type-products.manufacturer > .collection-item.avatar {
+	padding-left: 75px;
+}
+.collection.type-products.manufacturer .collection-item.avatar .group-info-type-products img {
+	border-radius: 0;
+}

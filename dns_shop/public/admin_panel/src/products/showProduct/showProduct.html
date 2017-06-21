@@ -1,0 +1,55 @@
+<div class="side-nav-right">
+	<div class="container">
+		
+		<div class="row">
+			<div class="header type-product">
+				<h3>Описание</h3>
+			</div>
+			<div class="col s12 m12">
+				<div class="row">
+					<div class="input-field col s10 m6  block">
+						<span class="field">Название: </span>
+						<span class="field-value">{{ vm.product.name }}</span>
+					</div>
+					<div class="input-field col s10 m6  block">
+						<span class="field">Производитель: </span>
+						<span class="field-value">{{ vm.product.manufacturer_id }}</span>
+					</div>
+					<div class="input-field col s10 m6  block">
+						<span class="field">Описание: </span><br>
+						<span class="field-value">{{ vm.product.description }}</span>
+					</div>
+					<div class="input-field col s10 m6  block">
+						<span class="field">Цена: </span>
+						<span class="field-value">{{ vm.product.price }}</span>
+					</div>
+					<div class="input-field col s10 m6  block"
+					ng-repeat="field in vm.typeProduct.fields track by $index">
+						<span class="field">{{ field.name }}</span>
+							<div class="type-integer" ng-if="field.type.name==='integer'">
+								<span class="field-value">
+									{{ vm.product.fields[$index] }} {{ field.type.unit }}
+								</span>
+							</div>
+							<div class="type-list" ng-if="field.type.name==='list'">
+								<span class="field-value">{{ vm.product.fields[$index] }}</span>
+							</div>
+							<div class="type-string" ng-if="field.type.name==='string'">
+								<span class="field-value">{{ vm.product.fields[$index] }}</span>
+							</div>
+					</div>
+					<div class="carousel show-product">
+						<a ng-repeat="image in vm.product.images"
+						 class="carousel-item">
+						 	<img ng-init="vm.InitGallery()" ng-src="/images/{{ image['medium'] }}">
+						 </a>
+					</div>
+					<a ui-sref="^"
+						class="waves-effect waves-light btn">Выход
+					</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

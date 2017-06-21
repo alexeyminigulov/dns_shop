@@ -1,0 +1,71 @@
+<div class="products header">
+	<h1>{{vm.typeProduct.name}}</h1>
+	<ul class="pagination">
+	    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+	    <li class="active"><a href="#!">1</a></li>
+	    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+  	</ul>
+</div>
+
+<table class="highlight  centered  table adaptive-table   responsive-table">
+	<thead>
+		<tr>
+			<th data-field="name">Логин</th>
+			<th data-field="email">Email</th>
+			<th class="group-buttons">Действие</th>
+			<!--<th data-field="first-name">Имя</th>
+			<th data-field="last-name">Фамилия</th>
+			<th data-field="sex">Пол</th>
+			<th data-field="birth-date">Дата рождения</th>-->
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="user in vm.users track by user.id"
+		ng-click="vm.selectUser(user)">
+			<td>{{ user.login }}</td>
+			<td>{{ user.email }}</td>
+			<td class="group-buttons">
+				<div class="fixed-action-btn horizontal">
+					<a class="btn-floating waves-effect waves-light btn-large red">
+						<i class="large material-icons  fa fa-outdent"></i>
+					</a>
+					<ul>
+						<li><a class="btn-floating deep-orange"
+									  ng-click="vm.userEdit($event, user.id )">
+							<i class="material-icons">mode_edit</i></a>
+						</li>
+						<li><a class="btn-floating deep-orange"
+									  ng-click="vm.userShow($event, user.id )">
+							<i class="material-icons">note_add</i></a>
+						</li>
+					</ul>
+				</div>
+			</td>
+			<!--<td>{{ user.first_name }}</td>
+			<td>{{ user.last_name }}</td>
+			<td>{{ user.sex }}</td>
+			<td>{{ user.birth_date }}</td>-->
+		</tr>
+		<tr>
+			<td colspan="3">
+				<a ng-click="vm.pagination($event)"
+				class="waves-effect waves-light btn">Просмотреть ...</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<ui-view></ui-view>
+
+<div class="users footer">
+	<div class="group-buttons">
+		<a class="waves-effect waves-light btn disabled"
+		ng-click="vm.selectUser(user, 'edit')">
+			<i class="material-icons left">mode_edit</i><span>Редактировать</span>
+		</a>
+		<a class="waves-effect waves-light btn disabled"
+		ng-click="vm.selectUser(user, 'open')">
+			<i class="material-icons left">open_in_new</i><span>Показать подробнее</span>
+		</a>
+	</div>
+</div>

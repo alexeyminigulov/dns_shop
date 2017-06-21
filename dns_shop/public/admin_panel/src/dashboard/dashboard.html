@@ -1,0 +1,71 @@
+<div class="row">
+	<div class="date-range col s12 m12 l12">
+		<div class="title">Показать отчет</div>
+		<div class="input-field col s4 m3 l3">
+			<input id="begin-range" type="date" class="datepicker begin-date">
+			<label class="active" for="begin-range">от</label>
+		</div>
+		<div class="input-field col s4 m3 l3">
+			<input id="end-range" type="date" class="datepicker last-date">
+			<label class="active" for="end-range">по</label>
+		</div>
+		<div class="col s4 m2 l2">
+			<a ng-click="vm.getStatistics($event)" class="waves-effect waves-light btn">Показать результат</a>
+		</div>
+	</div>
+	<div class="cards col s12 m12 l12">
+		<div class="row">
+			<div class="col s12 m12 l12">
+				<div class="row">
+					<div class="col s12 m5 l5">
+						<div class="z-depth-2  card">
+							<div class="red lighten-3  card-title">
+								<span class="title">Продажи</span>
+							</div>
+							<div class="card-content">{{ vm.commonSumPurchase }} <i class="fa fa-rub" aria-hidden="true"></i></div>
+						</div>
+					</div>
+					<div class="col s12 m4 l3">
+						<div class="card">
+							<div class="red lighten-3  card-title">
+								<span class="title">Заказы</span>
+							</div>
+							<div class="card-content">{{ vm.requestUsers }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col s12 m12 l12">
+				<div class="row">
+					<div class="col s12 m5 l5">
+						<div class="z-depth-2  card">
+							<div class="red lighten-3  card-title">
+								<span class="title">Товары на ветрине</span>
+							</div>
+							<div class="card-content">{{ vm.countPresentProducts }}</div>
+						</div>
+					</div>
+					<div class="col s12 m4 l3">
+						<div class="z-depth-2  card">
+							<div class="red lighten-3  card-title">
+								<span class="title">Нет в наличие</span>
+							</div>
+							<div class="card-content">{{ vm.countAbsenttProducts }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="statistics col s12 m12 l12" ng-show="vm.showChart">
+		<div class="row">
+			<div class="col s12 m8 l7">
+				<div class="title">Статистика продаж</div>
+				<div class="chart">
+					<canvas class="chart chart-line" chart-data="data" chart-labels="labels" 
+					chart-series="series" chart-click="onClick"></canvas> 
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

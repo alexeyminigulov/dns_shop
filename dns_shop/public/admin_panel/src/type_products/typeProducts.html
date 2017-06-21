@@ -1,0 +1,48 @@
+<div class="header">
+	<h1>Виды товаров</h1>
+	<div class="fixed-action-btn create-new-category">
+		<a ui-sref="type-products.create"
+		class="btn-floating btn-large waves-effect waves-light red">
+			<i class="material-icons">add</i>
+		</a>
+	</div>
+</div>
+
+<ul class="collection  type-products">
+	<li class="waves-effect  collection-item avatar type-product"
+	ng-repeat="typeProduct in vm.typeProducts track by typeProduct._id"
+	ng-click="vm.selectTP(typeProduct)">
+		<div class="group-info-type-products">
+			<img ng-src="/images/{{ typeProduct.logotype }}" alt="" class="circle">
+			<span class="title">{{ typeProduct.name }}</span>
+			<p>Id: {{ typeProduct._id }}</p>
+		</div>
+		<div class="group-buttons">
+			<a class="waves-effect waves-light btn" ng-click="vm.editTypeProduct($event, typeProduct, typeProduct._id)">
+				<i class="material-icons left">mode_edit</i><span>Редактировать</span>
+			</a>
+			<a class="waves-effect waves-light btn" ng-click="vm.delTypeProduct($event, typeProduct)">
+				<i class="material-icons left">delete</i><span>Удалить</span>
+			</a>
+		</div>
+	</li>
+</ul>
+
+<ui-view></ui-view>
+
+<div class="footer">
+	<div class="group-buttons">
+		<a class="waves-effect waves-light btn disabled"
+		ng-click="vm.selectTP(typeProduct, 'edit')">
+			<i class="material-icons left">mode_edit</i><span>Редактировать</span>
+		</a>
+		<a class="waves-effect waves-light btn disabled"
+		ng-click="vm.selectTP(typeProduct, 'open')">
+			<i class="material-icons left">open_in_new</i><span>Показать таблицу</span>
+		</a>
+		<a class="waves-effect waves-light btn disabled"
+		ng-click="vm.selectTP(typeProduct, 'delete')">
+			<i class="material-icons left">delete</i><span>Удалить</span>
+		</a>
+	</div>
+</div>

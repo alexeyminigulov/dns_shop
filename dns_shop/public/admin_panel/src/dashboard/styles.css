@@ -1,0 +1,37 @@
+.date-range .title {
+    font-size: 16px;
+    font-weight: 500;
+}
+.cards .row {
+    margin-bottom: 0;
+}
+.cards .card {
+    border-radius: 5px;
+}
+.cards .card .card-title {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.cards .card .card-title .title {
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.cards .card .card-content {
+    text-align: right;
+    font-weight: 500;
+    font-size: 25px;
+    padding: 10px;
+}
+.statistics {
+    margin-top: 45px;
+}
+.statistics .title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,52 @@
+{
+  "name": "super-shop",
+  "version": "1.0.0",
+  "description": "Admin Panel for online magazine \"Super Shop\"",
+  "main": "dist/js/app.js",
+  "dependencies": {
+    "angular": "1.6.0",
+    "angular-animate": "1.6.1",
+    "angular-chart.js": "^1.1.1",
+    "angular-toastr": "^2.1.1",
+    "angular-ui-bootstrap": "^2.5.0",
+    "angular-ui-router": "0.3.2",
+    "bigscreen": "^2.0.5",
+    "font-awesome": "4.7.0",
+    "jquery": "3.1.1",
+    "materialize-css": "^0.97.5",
+    "select2": "^4.0.3",
+    "textangular": "^1.5.16"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.6.0",
+    "autoprefixer": "^6.7.7",
+    "autoprefixer-loader": "^3.2.0",
+    "babel": "^6.23.0",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.2.2",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-runtime": "^5.8.25",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.5",
+    "ng-cache-loader": "0.0.14",
+    "ng-mock-e2e": "^0.1.1",
+    "node-sass": "^4.5.0",
+    "postcss-loader": "^1.3.3",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.2.1"
+  },
+  "scripts": {
+    "watch": "rimraf dist && webpack --config ./webpack.dev.config.js",
+    "build": "rimraf dist && webpack --config ./webpack.prod.config.js",
+    "test": "karma start karma.conf.js"
+  },
+  "author": "Alexei Minigulov",
+  "license": "ISC"
+}

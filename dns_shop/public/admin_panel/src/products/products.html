@@ -1,0 +1,86 @@
+<div class="products header">
+	<h1>{{vm.typeProduct.name}}</h1>
+	<div class="fixed-action-btn">
+		<a ui-sref="products.create"
+		class="btn-floating btn waves-effect waves-light red">
+			<i class="material-icons">add</i>
+		</a>
+	</div>
+	<!-- <ul class="pagination">
+	    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+	    <li class="active"><a href="#!">1</a></li>
+	    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+  	</ul> -->
+</div>
+
+<table class="highlight  centered  table adaptive-table   responsive-table">
+	<thead>
+		<tr>
+			<th data-field="id">Id</th>
+			<th data-field="name">Наименование</th>
+			<th data-field="price">Цена <i class="fa fa-rub" aria-hidden="true"></i></th>
+			<!-- <th ng-repeat="field in vm.typeProduct.fields track by $index" 
+			data-field="id">{{ field.name 
+				+ ((field.type.name === 'integer') ? 
+					((field.type.unit) ? 
+						' ('+vm.units[field.type.unit-1].name+')' : '') 
+				: '') }}</th> -->
+			<th class="group-buttons">Действие</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="product in vm.products track by $index"
+			ng-click="vm.selectProduct(product)">
+			<td>{{ product.id }}</td>
+			<td>{{ product.name }}</td>
+			<td>{{ product.price }}</td>
+			<!-- <td ng-repeat="field in product.fields track by $index">{{ field }}</td> -->
+			<td class="group-buttons">
+				<div class="fixed-action-btn horizontal">
+					<a class="btn-floating waves-effect waves-light btn-large red">
+						<i class="large material-icons  fa fa-outdent"></i>
+					</a>
+					<ul>
+						<li><a class="btn-floating deep-orange"
+									  ng-click="vm.editProduct(product.id)">
+							<i class="material-icons">mode_edit</i></a>
+						</li>
+						<li><a class="btn-floating deep-orange"
+									  ng-click="vm.showProduct(product.id)">
+							<i class="material-icons">note_add</i></a>
+						</li>
+						<li><a class="btn-floating deep-orange"
+									  ui-sref="products.delete({ id : product.id })">
+							<i class="fa fa-trash  material-icons" aria-hidden="true"></i></a>
+						</li>
+					</ul>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<a ng-click="vm.pagination($event)"
+				class="waves-effect waves-light btn">Просмотреть ...</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<ui-view class="product-view"></ui-view>
+
+<div class="products footer">
+	<div class="group-buttons">
+		<a class="waves-effect waves-light btn disabled"
+		ng-click="vm.selectProduct(product, 'edit')">
+			<i class="material-icons left">mode_edit</i><span>Редактировать</span>
+		</a>
+		<a class="waves-effect waves-light btn disabled"
+		ng-click="vm.selectProduct(product, 'open')">
+			<i class="material-icons left">open_in_new</i><span>Показать подробнее</span>
+		</a>
+		<a class="waves-effect waves-light btn disabled"
+		ng-click="vm.selectProduct(product, 'delete')">
+			<i class="material-icons left">delete</i><span>Удалить</span>
+		</a>
+	</div>
+</div>

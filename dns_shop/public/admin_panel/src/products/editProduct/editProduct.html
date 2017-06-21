@@ -1,0 +1,119 @@
+<div class="side-nav-right">
+	<div class="container">
+		
+		<div class="row">
+			<div class="header type-product">
+				<h1>Редактировать</h1>
+				<div class="fixed-action-btn">
+					<a ui-sref="#"
+					ng-click="vm.close($event)"
+					class="btn-floating btn-large waves-effect waves-light red">
+						<i class="material-icons">add</i>
+					</a>
+				</div>
+			</div>
+			<form class="col s12 m12">
+				<div class="row">
+					<div class="input-field col s10 m6  block">
+						<input id="name" type="text" class="validate"
+						ng-model="vm.product.name">
+						<label class="active" for="name">Название</label>
+					</div>
+					<div class="input-field col s10 m6  block">
+						<label for="manufacturer" class="browser-default  active">
+							Прроизводитель
+						</label>
+						<select
+						ng-model="vm.product.manufacturer_id" 
+						id="manufacturer"
+						class="browser-default">
+							<option ng-repeat="value in vm.manufacturers"
+							ng-selected="{{value.id == vm.product.manufacturer_id}}"
+							value="{{value.id}}">{{value.name}}</option>
+						</select>
+					</div>
+					<div class="input-field col s10 m6  block">
+						<textarea id="description" type="text" class="validate materialize-textarea"
+						ng-model="vm.product.description"></textarea>
+						<label class="active" for="description">Описание</label>
+					</div>
+					<div class="input-field col s10 m6  block">
+						<input id="price" type="text" class="validate"
+						ng-model="vm.product.price">
+						<label class="active" for="price">Цена</label>
+					</div>
+
+					<div class="input-field col s10 m6  block"
+					ng-repeat="field in vm.typeProduct.fields track by $index">
+						<div class="type-integer" ng-if="field.type.name==='integer'">
+							<input type="number" class="validate" step="1" 
+							min="{{ field.type.min }}" value="1" max="{{ field.type.max }}"
+							ng-model="vm.product.fields[$index]" required>
+							<label class="active">{{ field.name }}, {{ field.type.unit }}</label>
+						</div>
+						<div class="type-list" ng-if="field.type.name==='list'">
+							<label for="{{$index}}" class="browser-default  active">
+								{{ field.name }}
+							</label>
+							<select
+							ng-model="vm.product.fields[$index]" 
+							id="{{ $index }}"
+							class="browser-default">
+								<option ng-repeat="value in field.type.values"
+								ng-selected="{{value.id == vm.product.fields[$index]}}"
+								value="{{value.id}}">{{value.name}}</option>
+							</select>
+						</div>
+						<div class="type-string" ng-if="field.type.name==='string'">
+							<input type="text" class="validate"
+							ng-model="vm.product.fields[$index]">
+							<label class="active">{{ field.name }}</label>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="photo edit-product">
+					<div class="file-field input-field">
+						<div class="btn">
+							<span>File</span>
+							<input type="file" custom-on-change="vm.addPhoto">
+						</div>
+						<div class="file-path-wrapper">
+							<input class="file-path validate" type="text">
+						</div>
+					</div>
+					<ul class="collection">
+						<li class="collection-item avatar" ng-repeat="image in vm.product.images">
+							<div ng-if="vm.isServerImage(image)">
+								<img style="border-radius: 0" ng-src="/images/{{ image['medium'] }}" alt="" class="circle">
+								<span class="title">Название: {{ ::image['medium'] }}</span>
+								<a class="secondary-content btn-floating   waves-effect waves-light" 
+								ng-click="vm.delImage(image)">
+									<i class="material-icons">delete</i>
+								</a>
+							</div>
+							<div ng-if="!vm.isServerImage(image)">
+								<canvas style="border-radius: 0" 
+								canvas-draw-image="image" class="circle"></canvas>
+								<span class="title">Название: {{ ::image.name }}</span>
+								<p>Размер: {{ ::image.size | bytes:kB }}<br>
+									Тип: {{ ::image.type }}
+								</p>
+								<a class="secondary-content btn-floating   waves-effect waves-light" 
+								ng-click="vm.delImage(image)">
+									<i class="material-icons">delete</i>
+								</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<a ng-click="vm.submit($event)"
+					class="waves-effect waves-light btn">Обновить
+				</a>
+			</form>
+		</div>
+
+	</div>
+</div>

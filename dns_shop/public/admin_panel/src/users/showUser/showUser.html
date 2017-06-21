@@ -1,0 +1,35 @@
+<div id="modal-show-user" class="modal bottom-sheet">
+	<div class="modal-content">
+		<div class="row">
+			<div class="col s11 offset-s1 m4 offset-m2">
+				<h4>Редактировать пользователя</h4>
+				<div class="row">
+					<div class="input-field col s12 m6  block">
+						<span class="field">Login: </span>
+						<span class="field-value">{{ vm.user.login }}</span>
+					</div>
+					<div class="input-field col s12 m6  block">
+						<span class="field">Email: </span>
+						<span class="field-value">{{ vm.user.email }}</span>
+					</div>
+					<div class="input-field col s12 m6  block">
+						<span class="field">Роль: </span>
+						<span class="field-value">{{ vm.roles[vm.user.role_id]['name'] }}</span>
+					</div>
+					<div class="input-field col s12 m6  block">
+						<span class="field">Дата рождения: </span>
+						<span class="field-value">{{ vm.user.birth_date }}</span>
+					</div>
+					<div class="col s12 m6">
+						<a ng-click="vm.closeModalUser($event)"
+							class="waves-effect waves-light btn">Выход
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="modal-overlay"></div>

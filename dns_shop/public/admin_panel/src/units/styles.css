@@ -1,0 +1,34 @@
+@media only screen and (max-width : 480px) {
+	.input-field.col.units {
+		padding: 0;
+	}
+	/*.col.add-new-units {
+		padding: 0;
+	}*/
+}
+
+.add-new-units > a {
+	position: relative;
+	top: 20px;
+}
+
+.units {
+	padding: 0;
+}
+.units:after {
+	content: "";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+}
+.unit {
+	float: left;
+	line-height: 2.5;
+}
+.delete-unit {
+	float: right;
+}

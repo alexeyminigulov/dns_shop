@@ -1,0 +1,97 @@
+.footer {
+	display: none;
+	height: 60px;
+	width: 100px;
+}
+.collection.type-products {
+	display: block;
+	padding: 0;
+}
+.collection.type-products > .collection-item.avatar {
+	text-align: justify;
+	height: 100px;
+	padding-left: 20px;
+}
+.collection.type-products > .collection-item.avatar > .group-info-type-products {
+	display: inline-block;
+	vertical-align: 20px;
+}
+.collection.type-products > .collection-item.avatar > .group-info-type-products > img {
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+.collection.type-products > .collection-item.avatar::after {
+	content: '';
+	display: inline-block;
+	width: 100%;
+	height: 0;
+}
+.group-buttons {
+	display: inline-block;
+}
+.group-buttons a {
+	display: block;
+	position: static;
+}
+.group-buttons a:first-child {
+	margin-bottom: 5px;
+}
+
+@media only screen and (max-width : 480px) {
+	.collection.type-products {
+		height: 420px;
+		overflow-y: auto;
+		margin-bottom: 10px;
+	}
+	.collection.type-products .group-buttons {
+		display: none;
+	}
+	.footer {
+		display: block;
+		width: 100%;
+	}
+	.footer > .group-buttons {
+		text-align: justify;
+		width: 100%;
+	}
+	.footer > .group-buttons:after {
+		content: '';
+		display: inline-block;
+		width: 100%;
+		height: 0;
+	}
+	.footer > .group-buttons > a {
+		position: relative;
+		top: 10px;
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0;
+		padding: 0;
+	}
+}
+@media only screen and (max-width : 510px) and (min-width : 480px) {
+	.collection.type-products .group-info-type-products {
+		width: 50%;
+		overflow-x: hidden;
+	}
+	.collection.type-products .group-info-type-products p {
+		white-space: nowrap;
+	}
+}
+
+
+.type-product.ng-enter, .type-product.ng-move {
+	transition: 0.4s all;
+	opacity: 0;
+}
+.type-product.ng-enter.ng-enter-active, .type-product.ng-move.ng-move-active {
+	opacity: 1;
+}
+.type-product.ng-leave {
+	animation: 0.4s anim_category;
+}
+@keyframes anim_category {
+	from { opacity: 1; }
+	to	 { opacity: 0; }
+}
