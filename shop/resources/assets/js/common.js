@@ -660,8 +660,9 @@ $(function() {
 					max: price.max,
 					values: [ price.min, price.max ],
 					create: function( event, ui ) {
-						// $(formSlider.querySelector(".input-range .min")).val(price.min);
-						// $(formSlider.querySelector(".input-range .max")).val(price.max);
+						// не обязательны, в данном случае всегда в input есть значения
+						$(formSlider.querySelector(".input-range .min")).val(price.min);
+						$(formSlider.querySelector(".input-range .max")).val(price.max);
 					},
 					slide: function( event, ui ) {
 						$(formSlider.querySelector(".input-range .min")).val(ui.values[0]);
@@ -1179,40 +1180,48 @@ $(function() {
 		function renderProducts(products) {
 			var source   = `{{#each this}}
 							<div class="product"
-								 data-product-id="{{ id }}"
-								 data-product-price="{{ price }}"
-								 data-product-name="{{ name }}"
-								 data-product-img="/images/{{ logotype.medium }}">
-								<div class="col-md-2 col-sm-2 col-xs-3">
-									<div class="image">
-										<img class="center-block"
-											 src="/images/{{ logotype.medium }}"
-											 alt="{{ name }}">
-									</div>
-								</div>
-								<div class="col-md-7 col-sm-7 col-xs-9">
-									<div class="caption">
-										<a href="">
-											<span>{{ name }}</span>
-										</a>
-									</div>
-									<div class="hidden-md visible-sm hidden-xs">
-										<div class="description">
-											<span>
-												{{ description }}
-											</span>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3 col-sm-offset-0 col-xs-9 col-xs-offset-3">
-									<div class="price">
-										<span>{{ price }} <i class="fa fa-rub" aria-hidden="true"></i></span>
-									</div>
-									<div class="buy">
-										<a class="btn-buy">Купить</a>
-									</div>
-								</div>
-							</div>
+                                 data-product-id="{{ id }}"
+                                 data-product-price="{{ price }}"
+                                 data-product-name="{{ name }}"
+                                 data-product-img="/images/{{ logotype.medium }}">
+                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                    <div class="image">
+                                        <img class="center-block"
+                                             src="/images/{{ logotype.medium }}"
+                                             alt="{{ name }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-10 col-sm-10 col-xs-9">
+
+                                    <div class="col-md-7 col-sm-9 col-xs-9">
+                                        <div class="caption">
+                                            <a href="/product/{{ id }}">
+                                                <span>{{ name }}</span>
+                                            </a>
+                                        </div>
+                                        <div class="visible-lg visible-md visible-sm hidden-xs">
+                                            <div class="description">
+												<span>{{description}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 col-sm-3 col-sm-offset-0 col-xs-12 col-xs-offset-0">
+                                        <div class="price">
+                                            <span>{{ price }} <i class="fa fa-rub" aria-hidden="true"></i></span>
+                                        </div>
+                                        {{#if backup_amount}}
+											<div class="buy">
+												<a class="btn-buy">Купить</a>
+											</div>
+										{{else}}
+											<div class="product-absent">
+												<span>Нет в наличии</span>
+											</div>
+										{{/if}}
+                                    </div>
+
+                                </div>
+                            </div>
 							{{/each}}`,
 				template = Handlebars.compile(source),
 				result = template(products);
@@ -1232,6 +1241,9 @@ $(function() {
 			.done(function(data) {
 				// console.log(data);
 				history.pushState({product: "paginationProduct"}, "", searchUrl + "?page=" + page);
+				data.data.forEach(function(element) {
+					element.price = priceSet(element.price);
+				}, this);
 				renderProducts(data.data);
 			});
 		}

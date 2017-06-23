@@ -33,7 +33,7 @@ class NewsController extends Controller
     {
         $user = Auth::user();
         $news = new News();
-		$currentPage = intval( $request->input('\page', 1) );
+		$currentPage = intval( $request->input('page', 1) );
         if( Gate::denies('index', $news) )
         {
             return abort(404);
@@ -51,7 +51,7 @@ class NewsController extends Controller
     {
         $user = Auth::user();
         $news = new News();
-		$currentPage = intval( $request->input('\page', 1) );
+		$currentPage = intval( $request->input('page', 1) );
         if( Gate::denies('index', $news) )
         {
             return abort(404);

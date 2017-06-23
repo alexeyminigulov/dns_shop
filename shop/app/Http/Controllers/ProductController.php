@@ -25,21 +25,33 @@ class ProductController extends Controller
      */
     public function index(Request $request, $semanticUrl)
     {
+        // if( !$request->ajax() ) {
+        //     \Illuminate\Pagination\Paginator::currentPageResolver(function() {
+        //         return 1;
+        //     });
+        // }
         $typeProduct = TypeProduct::where('semanticUrl', $semanticUrl)->first();
         $products = Product::where('type_product_id', $typeProduct->_id)
                             ->select([ 'id','name','description','price','backup_amount' ])
                             ->paginate(3);
         $products = Product::getLogotype($products);
+        $listValue = ListValue::all();
 
         // For Ajax request
-        if( $request->has('page') && is_numeric($request['page']) && ($request->headers->get('Accept') == "*/*") ) {
+        if( $request->has('page') && is_numeric($request['page']) 
+            && ($request->headers->get('Accept') == "*/*") && ($request->ajax()) ) {
+                
+            foreach($products as $key => &$product) {
+                $params = view( 'includes.product-description', ['product' => $product, 'typeProduct' => $typeProduct] )->render();
+                $product->description = strip_tags( $params );
+            }
+            unset($product);
             return response()->json($products);
         }
 
         $categories = Category::getTreeCategories();
         $catalog = Category::getSubCategory(Category::where('table_id', $typeProduct->_id)->first()->semanticUrl, $categories);
         $slider = [ 'min' => DB::table('products')->min('price'), 'max' => DB::table('products')->max('price') ];
-        $listValue = ListValue::all();
         $brands = Manufacturer::all();
 
 
@@ -206,32 +218,45 @@ class ProductController extends Controller
              * @param  \Illuminate\Support\Collection $products
              * @return \Illuminate\Support\Collection
              */
-            function updateByProductCharacter($filterFields, $products)
+            function updateByProductCharacter($filterFields, $products, $typeProduct)
             {
-                foreach ($products as $item => &$product) {
+                #echo "<pre>";
+                #print_r($filterFields);
+                #echo "</pre>";
+		        for( $i=0; $i<count($products); $i++ ) {
                     // задаем запросы для динамических полей
-                    $product->productCharacter = $product->productCharacter();
+                    $products[$i]->productCharacter = $products[$i]->productCharacter();
                     foreach ($filterFields as $key => $values) {
-                        $product->productCharacter = $product->productCharacter->whereIn("fields.$key", $values);
+                        if( $typeProduct->fields[$key]['type']['name'] === 'list' ) {
+                            $products[$i]->productCharacter = $products[$i]
+                                                                ->productCharacter
+                                                                ->whereIn("fields.$key", $values);
+                        }
+                        if( $typeProduct->fields[$key]['type']['name'] === 'integer' ) {
+                            $products[$i]->productCharacter = $products[$i]
+                                                                ->productCharacter
+                                                                ->whereBetween("fields.$key", $values);
+                        }
+
                     }
-                    $product->productCharacter = $product->productCharacter->first();
+                    $products[$i]->productCharacter = $products[$i]->productCharacter->first();
                     // Удаляем данный товар из коллекции если для динамических полей ни чего не найдено
-                    if($product->productCharacter == null) {
-                        $products->splice($item);
+                    if($products[$i]->productCharacter == null) {
+                        $products->splice($i, 1);
+                        $i--;
                     } else {
-                        $product->logotype = $product->productCharacter->images[0];
+                        $products[$i]->logotype = $products[$i]->productCharacter->images[0];
                     }
                 }
-                unset($product);
 
                 return $products;
             }
-            $products = updateByProductCharacter($filterFields, $products);
+            $products = updateByProductCharacter($filterFields, $products, $typeProduct);
 
             return $products;
         }
         $products = getQueryProducts($params, $typeProduct);
-
+        
         return view('products', ['products' => $products, 'categories' => $categories,
             'slider' => $slider, 'typeProduct' => $typeProduct, 'listValue' => $listValue,
             'semanticUrl' => $semanticUrl, 'catalog' => $catalog, 'brands' => $brands]);

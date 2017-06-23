@@ -42,7 +42,7 @@ class ProductsController extends Controller
     {
         $user = Auth::user();
         $product = new Product();
-		$currentPage = intval( $request->input('\page', 1) );
+		$currentPage = intval( $request->input('page', 1) );
         if( Gate::denies('show', $product) )
         {
             return abort(404);
@@ -325,7 +325,7 @@ class ProductsController extends Controller
      */
     public function searchProducts($params, Request $request)
     {
-		$currentPage = intval( $request->input('\page', 1) );
+		$currentPage = intval( $request->input('page', 1) );
         parse_str($params, $output);
         if( !property_exists((object)$output, 'name') )
             return response()->json( ["No searched!"] );

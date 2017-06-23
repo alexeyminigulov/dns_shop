@@ -8,6 +8,7 @@ const extractSASS = new ExtractTextPlugin('libs.css');
 
 module.exports = {
 	entry: [
+	'babel-polyfill',
         './src/index.js'
     ],
 	plugins: [
