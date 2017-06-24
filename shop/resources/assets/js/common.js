@@ -393,6 +393,13 @@ $(function() {
 			indicate = true;
 			// console.log('asyncCreate');
 		} );
+
+		if( /*@cc_on!@*/false || !!document.documentMode ) {
+
+			paranga.addEventListener("mouseenter", () => {
+				$('.paranga').remove();
+			});
+		}
 	}
 	function parangaDel() {
 		if(!indicate) return;
@@ -406,6 +413,7 @@ $(function() {
 			$(paranga).css({
 				"opacity" : '0'
 			});
+			if(catalogDesktopHidden) catalogDesktopHidden.classList.add("invisible");
 
 			setTimeout( function () {
 				document.body.onmousemove = function (e) {
@@ -672,7 +680,54 @@ $(function() {
 			} );
 
 			// Checkbox
-			$( blockFilter.querySelectorAll(".checkboxradio input") ).checkboxradio();
+			// $( blockFilter.querySelectorAll(".checkboxradio input") ).checkboxradio();
+			checkboxfancy( $( blockFilter.querySelectorAll(".checkboxradio input") ) );
+
+			function checkboxfancy( inputs ) {
+				Array.prototype.forEach.call( inputs, function(input, i) {
+
+					var mark = document.createElement('span'),
+						space = document.createElement('span'),
+						parent = input.parentNode;
+
+					space.style.display = "inline-block";
+					space.style.width   = "5px";
+
+					mark.className = "ui-checkboxradio-icon ui-corner-all ui-icon ui-icon-background ui-icon-blank";
+					space.className = "ui-checkboxradio-icon-space";
+					input.className = "ui-checkboxradio ui-helper-hidden-accessible";
+
+					parent.className = "ui-checkboxradio-label ui-corner-all ui-button ui-widget";
+					parent.insertBefore(space, parent.firstChild);
+					parent.insertBefore(mark, parent.children[0]);
+					setTimeout( () => {
+						func( input );
+					}, 300 );
+
+					function checked(e) {
+						var input = e.target;
+
+						func(input);
+					}
+
+					function func(input) {
+
+						var parentOfInput = input.parentNode;
+
+						if( !input.checked ) {
+
+							parentOfInput.className = "ui-checkboxradio-label ui-corner-all ui-button ui-widget";
+							parentOfInput.firstChild.className = "ui-checkboxradio-icon ui-corner-all ui-icon ui-icon-background ui-icon-blank";
+						} else {
+
+							parentOfInput.className = "ui-checkboxradio-label ui-corner-all ui-button ui-widget ui-checkboxradio-checked ui-state-active";
+							parentOfInput.firstChild.className = "ui-checkboxradio-icon ui-corner-all ui-icon ui-icon-background ui-icon-check ui-state-checked";
+						}
+					}
+
+					input.addEventListener("click", checked);
+				} );
+			}
 
 			// Accordion
 			$( blockFilter.querySelectorAll(".collapse") ).accordion({

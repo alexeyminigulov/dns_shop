@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
+    "js-polyfills": "^0.1.33",
     "systemjs": "^0.20.14"
   }
 }
-
