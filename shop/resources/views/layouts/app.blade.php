@@ -190,7 +190,7 @@
             <div class="header-search">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-3   wrap-logo">
                             <div class="icon-logo desktop">
                                 <a class="logo" href="/" data-logo-title="data-original-title"></a>
                             </div>

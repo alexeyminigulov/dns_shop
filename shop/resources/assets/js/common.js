@@ -1,3 +1,22 @@
+(function() {
+
+  // проверяем поддержку
+  if (!Element.prototype.closest) {
+
+    // реализуем
+    Element.prototype.closest = function(css) {
+      var node = this;
+
+      while (node) {
+        if (node.matches(css)) return node;
+        else node = node.parentElement;
+      }
+      return null;
+    };
+  }
+
+})();
+
 $(function() {
 	'use strict';
 
@@ -406,7 +425,7 @@ $(function() {
 		if(!paranga) return;
 
 		document.body.onmousemove = function (e) {
-			if ( e.target.closest('.catalog.desktop') || e.target.closest('.header-search') ) return;
+			if ( e.target.closest('.catalog.desktop') || e.target.closest('.wrap-logo') ) return;
 			// console.log(e);
 			// console.log('del');
 
@@ -422,7 +441,7 @@ $(function() {
 					document.body.onmousemove = null;
 				};
 				function func(e) {
-					if ( e.target.closest('.catalog.desktop') || e.target.closest('.header-search') ) return;
+					if ( e.target.closest('.catalog.desktop') || e.target.closest('.wrap-logo') ) return;
 					if(!indicate) return;
 					$('.paranga').remove();
 					paranga = null;
