@@ -19,7 +19,7 @@ module.exports = function(app){
 				parent : "dashboard"
 			},
 			resolve:{
-				user: function($q, ProfileFactory){
+				user: [ '$q', 'ProfileFactory', 'toastr', function($q, ProfileFactory, toastr){
 					var deferred = $q.defer();
 					ProfileFactory.get()
 					.then( function success(data) {
@@ -31,7 +31,7 @@ module.exports = function(app){
 						toastr.error(msg);
 					} );
 					return deferred.promise;
-				}
+				} ]
 			},
 			controller: 'descProfileCtrl as vm'
 		});
