@@ -75,7 +75,7 @@
   box-sizing: border-box;
 }
 .side-nav.fixed .profile ul ul.profile-content {
-  height: 205px;
+  height: 105px;
   background-color: white;
   width: 132px !important;
 }
