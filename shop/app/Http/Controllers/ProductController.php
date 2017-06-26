@@ -32,6 +32,7 @@ class ProductController extends Controller
         // }
         $typeProduct = TypeProduct::where('semanticUrl', $semanticUrl)->first();
         $products = Product::where('type_product_id', $typeProduct->_id)
+                            ->orderBy('created_at', 'desc')
                             ->select([ 'id','name','description','price','backup_amount' ])
                             ->paginate(3);
         $products = Product::getLogotype($products);

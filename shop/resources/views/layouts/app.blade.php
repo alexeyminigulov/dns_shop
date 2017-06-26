@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Shop</title>
-    <meta name="description" content="">
+    <title>DNS-Shop</title>
+    <meta name="description" content="Большой ассортимент электроники, цифровой и бытовой техники, а так же товаров для дома, известных брендов в интернет-магазине DNS по отличным ценам. Гарантия и сервис. Доставка!">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -16,11 +16,11 @@
     <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
 
     <!-- Chrome, Firefox OS and Opera -->
-    <meta name="theme-color" content="#000">
+    <meta name="theme-color" content="orange">
     <!-- Windows Phone -->
-    <meta name="msapplication-navbutton-color" content="#000">
+    <meta name="msapplication-navbutton-color" content="orange">
     <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="orange">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
