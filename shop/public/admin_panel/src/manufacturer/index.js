@@ -10,7 +10,7 @@ module.exports = function(app){
     app.factory( 'ManufacturerFactory', [ '$http', '$q',
                                     require('./ManufacturerFactory') ]);
 	
-    app.controller( 'manufacturerCtrl', [ '$rootScope', '$scope', '$state', 
+    app.controller( 'manufacturerCtrl', [ '$timeout', '$rootScope', '$scope', '$state', 
                                         '$stateParams', 'toastr', 'ManufacturerFactory',
                                       require('./manufacturerCtrl') ]);
 

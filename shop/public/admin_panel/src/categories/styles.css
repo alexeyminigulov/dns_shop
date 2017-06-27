@@ -23,6 +23,7 @@
 .collection.categories {
 	display: block;
 	padding: 0;
+	overflow-y: auto;
 }
 .collection.categories > .collection-item.avatar {
 	text-align: justify;

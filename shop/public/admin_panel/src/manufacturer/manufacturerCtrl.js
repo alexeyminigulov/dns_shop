@@ -3,7 +3,8 @@
 module.exports = function manufacturerCtrl($rootScope, $scope, $state, $stateParams,
 									toastr, ManufacturerFactory) {
 
-	var vm = this;
+	var vm = this,
+		screenIsPhone = false;
 
 	vm.manufacturers = [];
 
@@ -17,6 +18,8 @@ module.exports = function manufacturerCtrl($rootScope, $scope, $state, $statePar
 	function init() {
 
 		getManufacturer();
+		setHeightManufacturer();
+		window.addEventListener("resize", setHeightManufacturer);
 	}
 
 	function getManufacturer() {
@@ -71,9 +74,38 @@ module.exports = function manufacturerCtrl($rootScope, $scope, $state, $statePar
 		}
 	}
 
+	function setHeightManufacturer() {
+		//if phone
+		if(document.documentElement.clientWidth > 480 ) { screenIsPhone = false; return; }
+
+		screenIsPhone = true;
+		// !!! Bad Code
+		$timeout(function(){
+
+			var collection    = document.querySelector('.collection.type-products'),
+				heightWindow  = document.documentElement.clientHeight,
+				heightFooter  = document.querySelector('.footer').offsetHeight,
+				topCollection = collection.getBoundingClientRect().top,
+				colletMargBot = parseInt( getComputedStyle(collection).marginBottom ),
+				heightCollection;
+
+			heightCollection = heightWindow - topCollection - heightFooter - colletMargBot;
+			collection.style.height = heightCollection + 'px';
+		});
+	}
+
 	$scope.$on('ManufacturerRenderView', function () {
 
 			getManufacturer();
+		});
+
+	$rootScope.$on('$stateChangeStart', 
+		function(event, toState, toParams, fromState, fromParams, options){ 
+			
+			if(toState.name !== "manufacturer") {
+				$rootScope.$$listeners.$stateChangeStart = [];
+				window.removeEventListener("resize", setHeightManufacturer);
+			}	    
 		});
 
 };
