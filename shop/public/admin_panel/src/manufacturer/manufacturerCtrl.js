@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function manufacturerCtrl($rootScope, $scope, $state, $stateParams,
+module.exports = function manufacturerCtrl($timeout, $rootScope, $scope, $state, $stateParams,
 									toastr, ManufacturerFactory) {
 
 	var vm = this,
