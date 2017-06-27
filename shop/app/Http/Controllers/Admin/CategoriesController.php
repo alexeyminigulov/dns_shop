@@ -19,8 +19,8 @@ class CategoriesController extends Controller
 {
     private $maxWidthImg = 1500;
     private $maxHeightImg = 1500;
-    private $minWidthImg = 135;
-    private $minHeightImg = 135;
+    private $minWidthImg = 90;
+    private $minHeightImg = 90;
     private $width;
     private $height;
     private $proportion;
@@ -329,8 +329,11 @@ class CategoriesController extends Controller
 
         $fileName = time() . $file->getClientOriginalName();
 
-        Image::make($file)->fit( $this->width, $this->height )
-            ->save( public_path() . '/images/' . $fileName );
+        // Image::make($file)->fit( $this->width, $this->height )
+        //     ->save( public_path() . '/images/' . $fileName );
+        $background = Image::canvas(Config::get('settings.categories_img')['path']['width'], Config::get('settings.categories_img')['path']['height'], '#ffffff');
+        $image = Image::make($file)->fit( $this->width, $this->height );
+        $background->insert($image, 'center')->save( public_path() . '/images/' . $fileName );
         if($category->logotype) {
             File::delete( 'images/' . $category->logotype );
         }

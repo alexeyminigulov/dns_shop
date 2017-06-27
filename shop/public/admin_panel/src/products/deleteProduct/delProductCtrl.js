@@ -58,6 +58,7 @@ module.exports = function delProductCtrl( $scope, $rootScope, $state, $statePara
 		$(modalDelete).closeModal();
 		parentModalDelete.removeChild( paranga );
 		$(header).css('z-index', '');
+		$('.products.header .fixed-action-btn').css('display', '');
 	}
 
 	function submit(e) {
